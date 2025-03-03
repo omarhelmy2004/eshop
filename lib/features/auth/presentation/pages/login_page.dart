@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/email_input_field.dart';
-import 'widgets/password_input_field.dart';
+import '../widgets/email_input_field.dart';
+import '../widgets/password_input_field.dart';
 import 'signup_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
                     },
                     child: Text(
                       "Signup",
-                      style: TextStyle(color: Colors.teal, fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
                 ],

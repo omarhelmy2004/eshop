@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'widgets/signup_button.dart'; // Ensure this import is correct and the file exists
-import 'widgets/email_input_field.dart';
-import 'widgets/password_input_field.dart';
-import 'widgets/confirm_password_input_field.dart';
+import '../widgets/signup_button.dart';
+import '../widgets/email_input_field.dart';
+import '../widgets/password_input_field.dart';
+import '../widgets/confirm_password_input_field.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -16,13 +16,6 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
-  bool _isLogin = false;
-
-  void _toggleFormType() {
-    setState(() {
-      _isLogin = !_isLogin;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,16 +39,18 @@ class _SignupPageState extends State<SignupPage> {
                 ],
               ),
               SizedBox(height: 30),
-              Text(_isLogin ? "Login" : "Signup", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+              Text("Signup", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
               SizedBox(height: 5),
               Row(
                 children: [
-                  Text(_isLogin ? "Don't have an account? " : "Already have an account? ", style: TextStyle(fontSize: 18)),
+                  Text("Already have an account? ", style: TextStyle(fontSize: 18)),
                   GestureDetector(
-                    onTap: _toggleFormType,
+                    onTap: () {
+                      Navigator.pushNamed(context, 'LoginPage');
+                    },
                     child: Text(
-                      _isLogin ? "Signup" : "Login",
-                      style: TextStyle(color: Colors.teal, fontWeight: FontWeight.bold, fontSize: 18),
+                      "Login",
+                      style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
                 ],
@@ -70,6 +65,7 @@ class _SignupPageState extends State<SignupPage> {
                   }
                   return null;
                 },
+              
               ),
               SizedBox(height: 15),
               PasswordInputField(
@@ -81,46 +77,31 @@ class _SignupPageState extends State<SignupPage> {
                   }
                   return null;
                 },
+               
               ),
-              if (!_isLogin) ...[
-                SizedBox(height: 15),
-                ConfirmPasswordInputField(
-                  enColor: Colors.green,
-                  foColor: Colors.black,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please confirm your password';
-                    }
-                    if (value != _passwordController.text) {
-                      return 'Passwords do not match';
-                    }
-                    return null;
-                  },
-                ),
-              ],
+              SizedBox(height: 15),
+              ConfirmPasswordInputField(
+                enColor: Colors.green,
+                foColor: Colors.black,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please confirm your password';
+                  }
+                  if (value != _passwordController.text) {
+                    return 'Passwords do not match';
+                  }
+                  return null;
+                },
+                
+              ),
               SizedBox(height: 25),
               SignupButton(
                 formKey: _formKey,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    // Handle signup or login logic here
+                    // Handle signup logic here
                   }
                 },
-              ),
-              SizedBox(height: 15),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                ),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.g_translate, color: Colors.teal),
-                    SizedBox(width: 8),
-                    Text(_isLogin ? "Login with Google" : "Signup with Google"),
-                  ],
-                ),
               ),
             ],
           ),
