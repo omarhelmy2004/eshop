@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/email_input_field.dart';
 import '../widgets/password_input_field.dart';
+import '../widgets/sign_button.dart';
 import 'signup_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -10,10 +11,13 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Form(
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -75,30 +79,15 @@ class LoginPage extends StatelessWidget {
                 },
               ),
               SizedBox(height: 25),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  minimumSize: Size(double.infinity, 50),
-                ),
+              SignupButton(
+                text: 'Login',
+                formKey: _formKey,
                 onPressed: () {
-                  // Handle login logic here
+                  if (_formKey.currentState!.validate()) {
+                    // Handle login logic here
+                  }
                 },
-                child: Text("Login", style: TextStyle(color: Colors.white)),
-              ),
-              SizedBox(height: 15),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                ),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.g_translate, color: Colors.teal),
-                    SizedBox(width: 8),
-                    Text("Login with Google"),
-                  ],
-                ),
+                
               ),
             ],
           ),

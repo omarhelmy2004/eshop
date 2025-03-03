@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/signup_button.dart';
+import '../widgets/sign_button.dart';
 import '../widgets/email_input_field.dart';
 import '../widgets/password_input_field.dart';
 import '../widgets/confirm_password_input_field.dart';
@@ -101,12 +101,14 @@ class _SignupPageState extends State<SignupPage> {
               ),
               SizedBox(height: 25),
               SignupButton(
+                text: 'Create Account',
                 formKey: _formKey,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Handle signup logic here
                   }
                 },
+       
               ),
             ],
           ),
