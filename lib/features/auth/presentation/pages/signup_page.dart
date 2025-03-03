@@ -3,6 +3,7 @@ import '../widgets/signup_button.dart';
 import '../widgets/email_input_field.dart';
 import '../widgets/password_input_field.dart';
 import '../widgets/confirm_password_input_field.dart';
+import 'login_page.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -46,7 +47,14 @@ class _SignupPageState extends State<SignupPage> {
                   Text("Already have an account? ", style: TextStyle(fontSize: 18)),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, 'LoginPage');
+                      Navigator.pushReplacement(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation1, animation2) => const LoginPage(),
+                          transitionDuration: Duration.zero,
+                          reverseTransitionDuration: Duration.zero,
+                        ),
+                      );
                     },
                     child: Text(
                       "Login",
@@ -65,7 +73,6 @@ class _SignupPageState extends State<SignupPage> {
                   }
                   return null;
                 },
-              
               ),
               SizedBox(height: 15),
               PasswordInputField(
@@ -77,7 +84,6 @@ class _SignupPageState extends State<SignupPage> {
                   }
                   return null;
                 },
-               
               ),
               SizedBox(height: 15),
               ConfirmPasswordInputField(
@@ -92,7 +98,6 @@ class _SignupPageState extends State<SignupPage> {
                   }
                   return null;
                 },
-                
               ),
               SizedBox(height: 25),
               SignupButton(

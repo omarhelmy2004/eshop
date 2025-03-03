@@ -36,7 +36,14 @@ class LoginPage extends StatelessWidget {
                   Text("Don't have an account? ", style: TextStyle(fontSize: 18)),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, SignupPage.id);
+                      Navigator.pushReplacement(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation1, animation2) => const SignupPage(),
+                          transitionDuration: Duration.zero,
+                          reverseTransitionDuration: Duration.zero,
+                        ),
+                      );
                     },
                     child: Text(
                       "Signup",
