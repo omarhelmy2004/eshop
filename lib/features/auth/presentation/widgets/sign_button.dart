@@ -18,7 +18,7 @@ class SignupButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         backgroundColor: Colors.black,
-        minimumSize: Size(double.infinity, 50),
+        minimumSize: Size(double.infinity, 60),
       ),
       onPressed: () {
         if (formKey.currentState!.validate()) {

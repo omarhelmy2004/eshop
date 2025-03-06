@@ -11,6 +11,7 @@ class Eshop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+     debugShowCheckedModeBanner: false, 
       routes: {
         LoginPage.id : (context) => const LoginPage(),
         SignupPage.id : (context) => const SignupPage(),

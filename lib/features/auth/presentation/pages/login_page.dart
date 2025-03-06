@@ -14,7 +14,8 @@ class LoginPage extends StatelessWidget {
     final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
-      body: Padding(
+      resizeToAvoidBottomInset: true,
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Form(
           key: _formKey,
