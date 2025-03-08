@@ -1,6 +1,5 @@
-import 'package:eshop/core/presentation/widgets/main_view.dart';
+
 import 'package:eshop/features/auth/presentation/pages/login_page.dart';
-import 'package:eshop/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,13 +11,11 @@ class Eshop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-     debugShowCheckedModeBanner: false, 
       routes: {
         LoginPage.id : (context) => const LoginPage(),
-        SignupPage.id : (context) => const SignupPage(),
-        MainView.id : (context) => const MainView(),
+
       },
-      initialRoute: MainView.id,
+      initialRoute: LoginPage.id,
     );
   }
 }
