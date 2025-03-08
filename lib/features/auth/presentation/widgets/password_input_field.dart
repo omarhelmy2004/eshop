@@ -18,8 +18,8 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Password *", style: TextStyle(fontWeight: FontWeight.bold)),
-        SizedBox(height: 5),
+        const Text("Password *", style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 5),
         TextFormField(
           obscureText: _obscurePassword,
           validator: widget.validator,

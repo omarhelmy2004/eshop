@@ -11,19 +11,19 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Form(
-          key: _formKey,
+          key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 60),
-              Row(
+              const SizedBox(height: 60),
+              const Row(
                 children: [
                   Icon(Icons.shopping_cart, color: Colors.teal, size: 30),
                   SizedBox(width: 8),
@@ -33,12 +33,12 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
-              Text("Login", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-              SizedBox(height: 5),
+              const SizedBox(height: 30),
+              const Text("Login", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 5),
               Row(
                 children: [
-                  Text("Don't have an account? ", style: TextStyle(fontSize: 18)),
+                  const Text("Don't have an account? ", style: TextStyle(fontSize: 18)),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(
@@ -50,14 +50,14 @@ class LoginPage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "Signup",
                       style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               EmailInputField(
                 enColor: Colors.green,
                 foColor: Colors.black,
@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               PasswordInputField(
                 enColor: Colors.green,
                 foColor: Colors.black,
@@ -79,12 +79,12 @@ class LoginPage extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               SignupButton(
                 text: 'Login',
-                formKey: _formKey,
+                formKey: formKey,
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
+                  if (formKey.currentState!.validate()) {
                     // Handle login logic here
                   }
                 },

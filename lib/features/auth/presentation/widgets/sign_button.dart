@@ -18,14 +18,14 @@ class SignupButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         backgroundColor: Colors.black,
-        minimumSize: Size(double.infinity, 60),
+        minimumSize: const Size(double.infinity, 60),
       ),
       onPressed: () {
         if (formKey.currentState!.validate()) {
           onPressed();
         }
       },
-      child: Text(text, style: TextStyle(color: Colors.white)),
+      child: Text(text, style: const TextStyle(color: Colors.white)),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:eshop/core/presentation/widgets/main_view.dart';
 import 'package:eshop/features/auth/presentation/pages/login_page.dart';
 import 'package:eshop/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,9 @@ class Eshop extends StatelessWidget {
       routes: {
         LoginPage.id : (context) => const LoginPage(),
         SignupPage.id : (context) => const SignupPage(),
+        MainView.id : (context) => const MainView(),
       },
-      initialRoute: LoginPage.id,
+      initialRoute: MainView.id,
     );
   }
 }

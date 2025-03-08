@@ -11,8 +11,8 @@ class EmailInputField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Email *", style: TextStyle(fontWeight: FontWeight.bold)),
-        SizedBox(height: 5),
+        const Text("Email *", style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 5),
         TextFormField(
           validator: validator,
           decoration: InputDecoration(

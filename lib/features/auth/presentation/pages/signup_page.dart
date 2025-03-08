@@ -29,8 +29,8 @@ class _SignupPageState extends State<SignupPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 60),
-              Row(
+              const SizedBox(height: 60),
+              const Row(
                 children: [
                   Icon(Icons.shopping_cart, color: Colors.teal, size: 30),
                   SizedBox(width: 8),
@@ -40,12 +40,12 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
-              Text("Signup", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-              SizedBox(height: 5),
+              const SizedBox(height: 30),
+              const Text("Signup", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 5),
               Row(
                 children: [
-                  Text("Already have an account? ", style: TextStyle(fontSize: 18)),
+                  const Text("Already have an account? ", style: TextStyle(fontSize: 18)),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(
@@ -57,14 +57,14 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "Login",
                       style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               EmailInputField(
                 enColor: Colors.green,
                 foColor: Colors.black,
@@ -75,7 +75,7 @@ class _SignupPageState extends State<SignupPage> {
                   return null;
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               PasswordInputField(
                 enColor: Colors.green,
                 foColor: Colors.black,
@@ -86,7 +86,7 @@ class _SignupPageState extends State<SignupPage> {
                   return null;
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               ConfirmPasswordInputField(
                 enColor: Colors.green,
                 foColor: Colors.black,
@@ -100,7 +100,7 @@ class _SignupPageState extends State<SignupPage> {
                   return null;
                 },
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               SignupButton(
                 text: 'Create Account',
                 formKey: _formKey,

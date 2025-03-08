@@ -11,8 +11,8 @@ class ConfirmPasswordInputField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Confirm Password *", style: TextStyle(fontWeight: FontWeight.bold)),
-        SizedBox(height: 5),
+        const Text("Confirm Password *", style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 5),
         TextFormField(
           obscureText: true,
           validator: validator,
