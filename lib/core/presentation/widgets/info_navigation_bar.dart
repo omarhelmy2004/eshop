@@ -26,25 +26,21 @@ class InfoBottomNavigationBar extends StatelessWidget {
         label: 'Home',
       ),
       BottomNavigationBarItem(
-        activeIcon: Icon(Icons.bar_chart),
-        icon: Icon(Icons.bar_chart_outlined),
-        label: 'Reports',
+        activeIcon: Icon(Icons.grid_view_rounded),
+        icon: Icon(Icons.grid_view_outlined),
+        label: 'Categories',
       ),
       BottomNavigationBarItem(
-        activeIcon: Icon(Icons.credit_card),
-        icon: Icon(Icons.credit_card_outlined),
-        label: 'Budget',
+        activeIcon: Icon(Icons.shopping_cart_rounded),
+        icon: Icon(Icons.shopping_cart_outlined),
+        label: 'My Cart',
       ),
       BottomNavigationBarItem(
-        activeIcon: Icon(Icons.receipt_long),
-        icon: Icon(Icons.receipt_long_outlined),
-        label: 'Transactions',
+        activeIcon: Icon(Icons.favorite_rounded),
+        icon: Icon(Icons.favorite_border_rounded),
+        label: 'Wishlist',
       ),
-      BottomNavigationBarItem(
-        activeIcon: Icon(Icons.checklist),
-        icon: Icon(Icons.checklist_outlined),
-        label: 'Goals',
-      ),
+      
     ];
   }
 }

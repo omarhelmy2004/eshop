@@ -16,13 +16,11 @@ class _MainViewState extends State<MainView> {
     if (selectedIndex == 0) {
       return 'Home';
     } else if (selectedIndex == 1) {
-      return 'Reports';
+      return 'Categories';
     } else if (selectedIndex == 2) {
-      return 'Budget';
-    } else if (selectedIndex == 3) {
-      return 'Transactions';
-    } else {
-      return 'Goals';
+      return 'My Cart';
+    }else {
+      return 'Favorites';
     }
   }
 

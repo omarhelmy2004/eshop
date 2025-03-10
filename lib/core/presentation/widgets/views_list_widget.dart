@@ -1,3 +1,4 @@
+import 'package:eshop/features/cart/presentation/pages/cart_page.dart';
 import 'package:eshop/features/products/presentation/pages/products_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,9 @@ class ViewsListWidget extends StatelessWidget {
     return  <Widget>[
       const ProductsPage(),
       const ProductsPage(),
+      const CartPage(),
       const ProductsPage(),
-      const ProductsPage(),
-      const ProductsPage(),
+     
       // const ReportsView(),
       // const BudgetView(),
       // const TransactionsView(),
