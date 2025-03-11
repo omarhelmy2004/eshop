@@ -1,5 +1,6 @@
 import 'package:eshop/core/presentation/widgets/info_navigation_bar.dart';
 import 'package:eshop/core/presentation/widgets/views_list_widget.dart';
+import 'package:eshop/features/account/presentation/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -60,7 +61,7 @@ class _MainViewState extends State<MainView> {
           centerTitle: true,
           actions: [
           // Icon(Icons.search, color: Colors.black, size: 33),
-          GestureDetector(child: Icon(Icons.person_outlined, color: Colors.black, size: 33,)
+          GestureDetector(child: Icon(Icons.person_outlined, color: Colors.black, size: 33,),
           onTap: () {
             Navigator.pushNamed(context, ProfilePage.id);
           },
