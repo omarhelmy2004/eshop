@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:eshop/features/products/presentation/pages/selected_category_page.dart';
 
 class CategoryIMG extends StatelessWidget {
   const CategoryIMG({
@@ -13,6 +14,14 @@ class CategoryIMG extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SelectedCategoryPage(categoryName: text),
+          ),
+        );
+      },
       child: Column(
         children: [
           Image.asset(image, height: height, width: width), // Use provided height and width
