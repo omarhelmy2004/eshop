@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:eshop/config/presentation/toggle_switch.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -11,9 +12,9 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   bool showOrderHistory = true;
 
-  void toggleView() {
+  void toggleView(int index) {
     setState(() {
-      showOrderHistory = !showOrderHistory;
+      showOrderHistory = index == 0;
     });
   }
 
@@ -33,18 +34,11 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Order History', style: TextStyle(fontSize: 18)), // Increased size
-                Switch(
-                  value: showOrderHistory,
-                  onChanged: (value) {
-                    toggleView();
-                  },
-                ),
-                const Text('Email', style: TextStyle(fontSize: 18)), // Increased size
-              ],
+            CustomToggleSwitch(
+
+              labels: const ['Order History', 'Email'],
+              initialIndex: showOrderHistory ? 0 : 1,
+              onToggle: toggleView,
             ),
             Expanded(
               child: showOrderHistory ? const OrderHistory() : const EmailInfo(),
@@ -56,8 +50,11 @@ class _ProfilePageState extends State<ProfilePage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
                 minimumSize: const Size(200, 60), // Increased size
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
-              child: const Text('Logout', style: TextStyle(fontSize: 20)), // Increased size
+              child: const Text('Logout', style: TextStyle(fontSize: 20, color: Colors.black)), // Increased size and black text
             ),
           ],
         ),
@@ -99,7 +96,7 @@ class EmailInfo extends StatelessWidget {
         children: const [
           Text('Email: user@example.com', style: TextStyle(fontSize: 18)),
           SizedBox(height: 20),
-          Text('Change your email in account settings.', style: TextStyle(fontSize: 16)),
+         
         ],
       ),
     );
