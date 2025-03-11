@@ -1,3 +1,4 @@
+import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop/config/presentation/rounded_app_bar.dart';
 
@@ -13,8 +14,13 @@ class SelectedCategoryPage extends StatelessWidget {
         text: categoryName,
         color: Colors.green,
       ),
-      body: Center(
-        child: Text('Displaying products for $categoryName'),
+      body: Padding(padding:EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+      child: Column(
+        children: [
+          
+          ProductsGrid(),
+        ],
+      ),
       ),
     );
   }
