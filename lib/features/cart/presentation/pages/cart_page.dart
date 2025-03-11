@@ -103,11 +103,11 @@ class OrderInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text('Order Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           SizedBox(height: 8),
           OrderInfoRow(label: 'Subtotal', value: '\$27.25'),

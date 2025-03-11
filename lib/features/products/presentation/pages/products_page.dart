@@ -7,49 +7,55 @@ class ProductsPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
            
             CustomSearchBar(enColor: Colors.green,
                 foColor: Colors.black,),
-            const Text('Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+            Text('Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.symmetric(vertical: 10),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                        height: 50,
-                        width: 50,
-                        color: Colors.grey,
-                      ),
-                      const Text('Electronics', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    children: [
-                      Container(
-                        height: 50,
-                        width: 50,
-                        color: Colors.grey,
-                      ),
-                      const Text('Clothing', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
+                  CategoryIMG(image: 'assets/images/images.jpg', text: 'Electronics'),
+                  SizedBox(width: 10),
+                  CategoryIMG(image: 'assets/images/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg', text: 'Jewelery'),
+                  SizedBox(width: 10),
+                  CategoryIMG(image: 'assets/images/mens.jpg', text: 'Men\'s Clothing'),
+                  SizedBox(width: 10),
+                  CategoryIMG(image: 'assets/images/womencloth.jpg', text: 'Women\'s Clothing'),
                 ],
               ),
             ),
-            const Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+            Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             ProductsGrid(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class CategoryIMG extends StatelessWidget {
+  const CategoryIMG({
+    super.key, required this.image,  this.height = 50,  this.width = 50, required this.text,
+  });
+  final String image;
+  final double height;
+  final double width;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image.asset(image, height: 50, width: 50),
+         Text(text, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+      ],
     );
   }
 }
