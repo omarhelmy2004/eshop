@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
@@ -61,11 +60,33 @@ class _ProductCardState extends State<ProductCard> {
               overflow: TextOverflow.ellipsis, // Added ellipsis for overflow
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              '\$126.00',
-              style: TextStyle(fontSize: 18, color: Colors.black),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              children: [
+                const Text(
+                  '\$126.00',
+                  style: TextStyle(fontSize: 18, color: Colors.black),
+                ),
+                const SizedBox(width: 5),
+                const Icon(Icons.category, size: 18, color: Colors.black),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // Handle buy action here
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                minimumSize: const Size(double.infinity, 40),
+              ),
+              child: const Text('Buy', style: TextStyle(color: Colors.white)),
             ),
           ),
         ],
