@@ -7,22 +7,20 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Cart', style: TextStyle(fontSize: 24)),
-      ),
+      
       body: Column(
         children: [
           Expanded(
             child: ListView(
               children: const [
                 CartItem(
-                  imageUrl: 'https://via.placeholder.com/80',
+                  imageUrl: 'https://m.media-amazon.com/images/I/81uiWMk9dnL._AC_SL1500_.jpg',
                   title: 'Loop Silicone Strong Magnetic Watch',
                   price: 15.25,
                   originalPrice: 20.00,
                 ),
                 CartItem(
-                  imageUrl: 'https://via.placeholder.com/80',
+                  imageUrl: 'https://m.media-amazon.com/images/I/81uiWMk9dnL._AC_SL1500_.jpg',
                   title: 'M6 Smart watch IP67 Waterproof',
                   price: 12.00,
                   originalPrice: 18.00,

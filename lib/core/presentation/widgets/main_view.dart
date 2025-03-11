@@ -33,7 +33,17 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        
+        appBar: AppBar(
+          title: Text( pageNameOfSelectedIndex(selectedIndex) ,
+          style:  TextStyle(fontSize: 25, fontWeight: FontWeight.bold )),
+          
+          centerTitle: true,
+          actions: const [
+          // Icon(Icons.search, color: Colors.black, size: 33),
+          Icon(Icons.person_outlined, color: Colors.black, size: 33),
+          SizedBox(width: 8),
+        ],
+        ),
         
         bottomNavigationBar: InfoBottomNavigationBar(
           onItemTapped: _onItemTapped,

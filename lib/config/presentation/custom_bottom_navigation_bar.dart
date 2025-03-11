@@ -34,6 +34,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         splashColor: Colors.transparent, // No splash
         highlightColor: Colors.transparent, // No highlight
       ),
+      
       child: BottomNavigationBar(
         showUnselectedLabels: false,
         showSelectedLabels: true,

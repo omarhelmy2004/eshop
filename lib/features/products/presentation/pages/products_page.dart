@@ -6,18 +6,13 @@ class ProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: const [
-          Icon(Icons.search, color: Colors.black, size: 33),
-          Icon(Icons.person_outlined, color: Colors.black, size: 33),
-          SizedBox(width: 8),
-        ],
-      ),
+      
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
             const Text('Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
