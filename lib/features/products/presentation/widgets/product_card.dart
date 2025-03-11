@@ -13,6 +13,7 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 250,
       decoration: BoxDecoration(
         color: const Color(0xFFF5F5F5), // New background color
         borderRadius: BorderRadius.circular(10),
@@ -68,13 +69,13 @@ class _ProductCardState extends State<ProductCard> {
                   '\$126.00',
                   style: TextStyle(fontSize: 18, color: Colors.black),
                 ),
-                const SizedBox(width: 5),
-                const Icon(Icons.category, size: 18, color: Colors.black),
+                
+              
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
             child: ElevatedButton(
               onPressed: () {
                 // Handle buy action here
@@ -84,7 +85,7 @@ class _ProductCardState extends State<ProductCard> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                minimumSize: const Size(double.infinity, 40),
+                minimumSize: const Size(double.infinity, 30),
               ),
               child: const Text('Buy', style: TextStyle(color: Colors.white)),
             ),
