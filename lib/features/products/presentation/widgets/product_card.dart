@@ -13,15 +13,14 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
       decoration: BoxDecoration(
         color: const Color(0xFFF5F5F5), // New background color
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
         children: [
-          Stack(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: 100,
@@ -36,58 +35,59 @@ class _ProductCardState extends State<ProductCard> {
                   ),
                 ),
               ),
-              Positioned(
-                top: 8,
-                right: 8,
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isWishlisted = !isWishlisted;
-                    });
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Nike air jordan retro fa...',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis, // Added ellipsis for overflow
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      '\$126.00',
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                    ),
+                    const SizedBox(width: 5),
+                    const Icon(Icons.category, size: 18, color: Colors.black),
+                  ],
+                ),
+              ),
+              const Spacer(), // Added Spacer to push the button to the bottom
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Handle buy action here
                   },
-                  child: Icon(
-                    isWishlisted ? Icons.favorite : Icons.favorite_border,
-                    color: isWishlisted ? Colors.red : Colors.black,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    minimumSize: const Size(double.infinity, 40),
                   ),
+                  child: const Text('Buy', style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              'Nike air jordan retro fa...',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              overflow: TextOverflow.ellipsis, // Added ellipsis for overflow
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                const Text(
-                  '\$126.00',
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                ),
-                
-              
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Handle buy action here
+          Positioned(
+            top: 8,
+            right: 8,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isWishlisted = !isWishlisted;
+                });
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                minimumSize: const Size(double.infinity, 30),
+              child: Icon(
+                isWishlisted ? Icons.favorite : Icons.favorite_border,
+                color: isWishlisted ? Colors.red : Colors.black,
               ),
-              child: const Text('Buy', style: TextStyle(color: Colors.white)),
             ),
           ),
         ],

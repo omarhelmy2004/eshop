@@ -16,6 +16,7 @@ class ProductsGrid extends StatelessWidget {
           crossAxisCount: 2,
           crossAxisSpacing: 20,
           mainAxisSpacing: 50,
+          childAspectRatio: 0.7,
         ),
         itemBuilder: (context, index) {
           return const ProductCard();
