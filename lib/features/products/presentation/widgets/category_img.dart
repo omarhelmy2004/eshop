@@ -10,11 +10,14 @@ class CategoryIMG extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(image, height: 60, width: 60),
-         Text(text, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-      ],
+    return GestureDetector(
+      
+      child: Column(
+        children: [
+          Image.asset(image, height: 60, width: 60),
+           Text(text, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+        ],
+      ),
     );
   }
 }
