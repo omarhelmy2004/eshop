@@ -1,4 +1,5 @@
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
+import 'package:eshop/features/products/presentation/widgets/category_img.dart';
 import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
 import 'package:flutter/material.dart';
 
@@ -41,21 +42,4 @@ class ProductsPage extends StatelessWidget {
   }
 }
 
-class CategoryIMG extends StatelessWidget {
-  const CategoryIMG({
-    super.key, required this.image,  this.height = 50,  this.width = 50, required this.text,
-  });
-  final String image;
-  final double height;
-  final double width;
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(image, height: 50, width: 50),
-         Text(text, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-      ],
-    );
-  }
-}
+
