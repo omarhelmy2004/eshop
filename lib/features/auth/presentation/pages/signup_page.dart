@@ -45,7 +45,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 5),
               Row(
                 children: [
-                  const Text("Already have an account? ", style: const TextStyle(fontSize: 18)),
+                  const Text("Already have an account? ", style: TextStyle(fontSize: 18)),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(

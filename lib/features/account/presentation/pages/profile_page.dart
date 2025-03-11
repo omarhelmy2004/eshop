@@ -90,10 +90,10 @@ class EmailInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Text('Email: user@example.com', style: TextStyle(fontSize: 18)),
           SizedBox(height: 20),
          

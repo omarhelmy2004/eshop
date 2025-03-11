@@ -14,7 +14,7 @@ class SelectedCategoryPage extends StatelessWidget {
         text: categoryName,
         color: Colors.green,
       ),
-      body: Padding(padding:EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+      body: const Padding(padding:EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
       child: Column(
         children: [
           

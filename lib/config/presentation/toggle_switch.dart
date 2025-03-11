@@ -7,11 +7,11 @@ class CustomToggleSwitch extends StatelessWidget {
   final Function(int) onToggle;
 
   const CustomToggleSwitch({
-    Key? key,
+    super.key,
     required this.labels,
     this.initialIndex = 0,
     required this.onToggle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class CustomToggleSwitch extends StatelessWidget {
           [Colors.green],
           [Colors.green]
         ],
-        customTextStyles: [
+        customTextStyles: const [
           TextStyle( color: Colors.black),
           TextStyle( color: Colors.black),
           TextStyle( color: Colors.black),

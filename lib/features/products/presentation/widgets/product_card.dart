@@ -43,16 +43,16 @@ class _ProductCardState extends State<ProductCard> {
                   overflow: TextOverflow.ellipsis, // Added ellipsis for overflow
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       '\$126.00',
                       style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
-                    const SizedBox(width: 5),
-                    const Icon(Icons.category, size: 18, color: Colors.black),
+                    SizedBox(width: 5),
+                   
                   ],
                 ),
               ),

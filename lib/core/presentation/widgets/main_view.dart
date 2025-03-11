@@ -40,8 +40,8 @@ class _MainViewState extends State<MainView> {
           backgroundColor: Colors.green,
           shape: ShapeBorder.lerp(
             
-            RoundedRectangleBorder(
-              borderRadius: const BorderRadius.only(
+            const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
               ),
@@ -61,7 +61,7 @@ class _MainViewState extends State<MainView> {
           centerTitle: true,
           actions: [
           // Icon(Icons.search, color: Colors.black, size: 33),
-          GestureDetector(child: Icon(Icons.person_outlined, color: Colors.black, size: 33,),
+          GestureDetector(child: const Icon(Icons.person_outlined, color: Colors.black, size: 33,),
           onTap: () {
             Navigator.pushNamed(context, ProfilePage.id);
           },

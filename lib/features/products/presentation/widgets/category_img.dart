@@ -13,20 +13,23 @@ class CategoryIMG extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => SelectedCategoryPage(categoryName: text),
-          ),
-        );
-      },
-      child: Column(
-        children: [
-          Image.asset(image, height: height, width: width), // Use provided height and width
-          Text(text, style:  TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold)),
-        ],
+    return SizedBox(
+      
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SelectedCategoryPage(categoryName: text),
+            ),
+          );
+        },
+        child: Column(
+          children: [
+            Image.asset(image, height: height, width: width), // Use provided height and width
+            Text(text, style:  TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold)),
+          ],
+        ),
       ),
     );
   }
