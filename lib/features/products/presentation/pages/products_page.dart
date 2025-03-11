@@ -1,3 +1,4 @@
+import 'package:eshop/core/presentation/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -6,13 +7,14 @@ class ProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
+           
+            CustomSearchBar(enColor: Colors.green,
+                foColor: Colors.black,),
             const Text('Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -66,3 +68,4 @@ class ProductsPage extends StatelessWidget {
     );
   }
 }
+
