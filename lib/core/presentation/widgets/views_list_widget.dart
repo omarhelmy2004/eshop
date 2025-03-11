@@ -1,5 +1,6 @@
 import 'package:eshop/features/cart/presentation/pages/cart_page.dart';
 import 'package:eshop/features/products/presentation/pages/products_page.dart';
+import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,7 +13,7 @@ class ViewsListWidget extends StatelessWidget {
       const ProductsPage(),
       const ProductsPage(),
       const CartPage(),
-      const ProductsPage(),
+      const WishlistPage(),
      
       // const ReportsView(),
       // const BudgetView(),

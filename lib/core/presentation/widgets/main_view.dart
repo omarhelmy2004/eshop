@@ -20,7 +20,7 @@ class _MainViewState extends State<MainView> {
     } else if (selectedIndex == 2) {
       return 'My Cart';
     }else {
-      return 'Favorites';
+      return 'Wishlist';
     }
   }
 

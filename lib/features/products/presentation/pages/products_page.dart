@@ -1,4 +1,5 @@
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
+import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
 import 'package:flutter/material.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -45,27 +46,10 @@ class ProductsPage extends StatelessWidget {
               ),
             ),
             const Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            Expanded(
-              child: GridView.builder(
-                itemCount: 20,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                ),
-                itemBuilder: (context, index) {
-                  return Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.grey,
-                  );
-                },
-              ),
-            ),
+            ProductsGrid(),
           ],
         ),
       ),
     );
   }
 }
-
