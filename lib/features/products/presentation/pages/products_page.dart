@@ -11,26 +11,26 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Logo(),
-            SizedBox(
-              width: 230,
-              height: 40,
-              child: CustomSearchBar(enColor: Colors.green, foColor: Colors.black)),
+            const Logo(),
+            const SizedBox(width: 15), // Adjust spacing between Logo and SearchBar
+            Expanded(
+              child: SizedBox(
+                height: 40,
+                child: CustomSearchBar(enColor: Colors.green, foColor: Colors.black),
+              ),
+            ),
           ],
         ),
         actions: [
-          GestureDetector(
-            child: IconButton(
-              icon: Icon(Icons.favorite_border_rounded),
-              onPressed: () {
-               
-              },
-            ),
+          IconButton(
+            icon: const Icon(Icons.favorite_border_rounded, size: 28), // Adjust icon size
+            onPressed: () {
+              // Handle favorite icon action
+            },
           ),
+          const SizedBox(width: 10), // Add spacing after the favorite icon
         ],
         backgroundColor: Colors.white,
       ),
@@ -39,8 +39,6 @@ class ProductsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           
-            
             Text('Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
