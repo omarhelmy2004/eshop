@@ -1,3 +1,4 @@
+import 'package:eshop/core/presentation/widgets/logo.dart';
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
 import 'package:eshop/features/products/presentation/widgets/category_img.dart';
 import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
@@ -8,15 +9,38 @@ class ProductsPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
+    return Scaffold(
+      appBar: AppBar(
+        
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Logo(),
+            SizedBox(
+              width: 230,
+              height: 40,
+              child: CustomSearchBar(enColor: Colors.green, foColor: Colors.black)),
+          ],
+        ),
+        actions: [
+          GestureDetector(
+            child: IconButton(
+              icon: Icon(Icons.favorite_border_rounded),
+              onPressed: () {
+               
+              },
+            ),
+          ),
+        ],
+        backgroundColor: Colors.white,
+      ),
+      body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
            
-            CustomSearchBar(enColor: Colors.green,
-                foColor: Colors.black,),
+            
             Text('Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),

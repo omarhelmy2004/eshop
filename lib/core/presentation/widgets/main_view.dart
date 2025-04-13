@@ -35,40 +35,7 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Scaffold(
       
-        appBar: AppBar(
-          
-          backgroundColor: Colors.green,
-          shape: ShapeBorder.lerp(
-            
-            const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-            ),
-            const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-              ),
-            ),
-            0.5,
-          ),
-          scrolledUnderElevation: 0,
-          title: Text( pageNameOfSelectedIndex(selectedIndex) ,
-          style:  const TextStyle(fontSize: 25, fontWeight: FontWeight.bold )),
-          
-          centerTitle: true,
-          actions: [
-          // Icon(Icons.search, color: Colors.black, size: 33),
-          GestureDetector(child: const Icon(Icons.person_outlined, color: Colors.black, size: 33,),
-          onTap: () {
-            Navigator.pushNamed(context, ProfilePage.id);
-          },
-          ),
-          const SizedBox(width: 8),
-        ],
-        ),
+        
         
         bottomNavigationBar: InfoBottomNavigationBar(
           onItemTapped: _onItemTapped,

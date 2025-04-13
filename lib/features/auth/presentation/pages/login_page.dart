@@ -1,3 +1,4 @@
+import 'package:eshop/core/presentation/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import '../widgets/email_input_field.dart';
 import '../widgets/password_input_field.dart';
@@ -23,16 +24,7 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 60),
-              const Row(
-                children: [
-                  Icon(Icons.shopping_cart, color: Colors.teal, size: 30),
-                  SizedBox(width: 8),
-                  Text(
-                    "QuickMart",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              Logo(),
               const SizedBox(height: 30),
               const Text("Login", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
               const SizedBox(height: 5),
@@ -97,3 +89,4 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
