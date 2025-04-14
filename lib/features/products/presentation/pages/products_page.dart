@@ -1,7 +1,8 @@
 import 'package:eshop/core/presentation/widgets/logo.dart';
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
-import 'package:eshop/features/products/presentation/widgets/category_img.dart';
+import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
 import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
+import 'package:eshop/features/products/presentation/widgets/promo_banner.dart';
 import 'package:flutter/material.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -11,10 +12,10 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
-            const Logo(),
-            const SizedBox(width: 15), // Adjust spacing between Logo and SearchBar
+            Logo(),
+            SizedBox(width: 15), // Adjust spacing between Logo and SearchBar
             Expanded(
               child: SizedBox(
                 height: 40,
@@ -27,41 +28,64 @@ class ProductsPage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.favorite_border_rounded, size: 28), // Adjust icon size
             onPressed: () {
-              // Handle favorite icon action
+            Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WishlistPage(),
+            ),
+          );
             },
           ),
           const SizedBox(width: 10), // Add spacing after the favorite icon
         ],
         backgroundColor: Colors.white,
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Categories', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            // Add promotional banner
+            SizedBox(
+              height: 170,
+              child: Stack(
+                alignment: Alignment.bottomCenter,
                 children: [
-                  CategoryIMG(image: 'assets/images/images.jpg', text: 'Electronics'),
-                  SizedBox(width: 10),
-                  CategoryIMG(image: 'assets/images/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg', text: 'Jewelery'),
-                  SizedBox(width: 10),
-                  CategoryIMG(image: 'assets/images/mens.jpg', text: 'Men\'s Clothing'),
-                  SizedBox(width: 10),
-                  CategoryIMG(image: 'assets/images/womencloth.jpg', text: 'Women\'s Clothing'),
+                  PageView(
+                    children: [
+                      PromoBanner(
+                        discount: '30% OFF',
+                        title: 'On Headphones',
+                        subtitle: 'Exclusive Sales',
+                        image: 'https://static.vecteezy.com/system/resources/thumbnails/044/283/776/small_2x/white-headphone-on-transparent-background-image-png.png',
+                      ),
+                      PromoBanner(
+                        discount: '50% OFF',
+                        title: 'On Speakers',
+                        subtitle: 'Limited Time Offer',
+                        image: 'https://static.vecteezy.com/system/resources/thumbnails/044/283/776/small_2x/white-headphone-on-transparent-background-image-png.png',
+                      ),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IndicatorDot(isActive: true),
+                        IndicatorDot(isActive: false),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-            Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            ProductsGrid(),
+            const SizedBox(height: 20), // Add spacing after the banner
+            const Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+            const ProductsGrid(),
           ],
         ),
       ),
     );
   }
 }
-
-
