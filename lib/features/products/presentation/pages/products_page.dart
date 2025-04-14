@@ -31,7 +31,7 @@ class ProductsPage extends StatelessWidget {
             Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WishlistPage(),
+              builder: (context) => const WishlistPage(),
             ),
           );
             },
@@ -52,7 +52,7 @@ class ProductsPage extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 children: [
                   PageView(
-                    children: [
+                    children: const [
                       PromoBanner(
                         discount: '30% OFF',
                         title: 'On Headphones',

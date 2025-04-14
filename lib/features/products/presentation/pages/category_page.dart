@@ -1,3 +1,5 @@
+import 'package:eshop/core/presentation/widgets/logo.dart';
+import 'package:eshop/core/presentation/widgets/search_bar.dart';
 import 'package:eshop/features/products/presentation/widgets/category_img.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +8,26 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Row(
+          children: [
+            Logo(),
+            SizedBox(width: 15), // Adjust spacing between Logo and SearchBar
+            Expanded(
+              child: SizedBox(
+                height: 40,
+                child: CustomSearchBar(enColor: Colors.green, foColor: Colors.black),
+              ),
+            ),
+          ],
+        ),
+        actions: const [
+          SizedBox(width: 16,)
+        ],
+        backgroundColor: Colors.white,
+      ),
+      body: const Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
           child: Column(
