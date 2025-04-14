@@ -1,7 +1,7 @@
 import 'package:eshop/core/presentation/widgets/logo.dart';
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
 import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
-import 'package:eshop/features/products/presentation/widgets/vertical_products_grid.dart';
+import 'package:eshop/features/products/presentation/widgets/horizontal_products_grid.dart';
 import 'package:eshop/features/products/presentation/widgets/promo_banner.dart';
 import 'package:eshop/features/products/presentation/pages/selected_category_page.dart';
 import 'package:eshop/features/products/presentation/widgets/category_button.dart';
@@ -58,8 +58,8 @@ class _ProductsPageState extends State<ProductsPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          
           children: [
             // Add promotional banner
             SizedBox(
@@ -158,8 +158,39 @@ class _ProductsPageState extends State<ProductsPage> {
               ),
             ),
             const SizedBox(height: 20), // Add spacing after the category buttons
-            const Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            const VerticalProductsGrid(),
+
+
+
+            const Padding(
+              padding: EdgeInsets.only(bottom: 9.0),
+              child: Text('Recommended for you', style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(
+              height: 250,
+              child:  HorizontalProductsGrid()),
+              const SizedBox(height: 40), // Add spacing after the category buttons
+
+
+
+
+            const Padding(
+              padding: EdgeInsets.only(bottom: 9.0),
+              child: Text('Top rated', style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(
+              height: 250,
+              child:  HorizontalProductsGrid()),const SizedBox(height: 40), // Add spacing after the category buttons
+
+
+
+
+            const Padding(
+              padding: EdgeInsets.only(bottom: 9.0),
+              child: Text('Hot sales', style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(
+              height: 250,
+              child:  HorizontalProductsGrid()),
           ],
         ),
       ),
