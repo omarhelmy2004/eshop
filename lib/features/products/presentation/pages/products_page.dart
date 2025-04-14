@@ -3,6 +3,8 @@ import 'package:eshop/core/presentation/widgets/search_bar.dart';
 import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
 import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
 import 'package:eshop/features/products/presentation/widgets/promo_banner.dart';
+import 'package:eshop/features/products/presentation/pages/selected_category_page.dart';
+import 'package:eshop/features/products/presentation/widgets/category_button.dart';
 import 'package:flutter/material.dart';
 
 class ProductsPage extends StatefulWidget {
@@ -101,6 +103,61 @@ class _ProductsPageState extends State<ProductsPage> {
               ),
             ),
             const SizedBox(height: 20), // Add spacing after the banner
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CategoryButton(
+                    label: 'Technology',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectedCategoryPage(categoryName: 'Technology'),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CategoryButton(
+                    label: 'Fashion',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectedCategoryPage(categoryName: 'Fashion'),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CategoryButton(
+                    label: 'Sports',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectedCategoryPage(categoryName: 'Sports'),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CategoryButton(
+                    label: 'Superman',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectedCategoryPage(categoryName: 'Superman'),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20), // Add spacing after the category buttons
             const Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
             const ProductsGrid(),
           ],
