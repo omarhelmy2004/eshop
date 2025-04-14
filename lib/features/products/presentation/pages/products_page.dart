@@ -5,9 +5,23 @@ import 'package:eshop/features/products/presentation/widgets/products_grid.dart'
 import 'package:eshop/features/products/presentation/widgets/promo_banner.dart';
 import 'package:flutter/material.dart';
 
-class ProductsPage extends StatelessWidget {
+class ProductsPage extends StatefulWidget {
   const ProductsPage({super.key});
-  
+
+  @override
+  State<ProductsPage> createState() => _ProductsPageState();
+}
+
+class _ProductsPageState extends State<ProductsPage> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +66,12 @@ class ProductsPage extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 children: [
                   PageView(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentPage = index;
+                      });
+                    },
                     children: const [
                       PromoBanner(
                         discount: '30% OFF',
@@ -67,14 +87,14 @@ class ProductsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 10.0),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IndicatorDot(isActive: true),
-                        IndicatorDot(isActive: false),
-                      ],
+                      children: List.generate(
+                        2, // Number of banners
+                        (index) => IndicatorDot(isActive: index == _currentPage),
+                      ),
                     ),
                   ),
                 ],
