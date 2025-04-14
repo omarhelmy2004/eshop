@@ -1,5 +1,6 @@
 import 'package:eshop/features/auth/presentation/widgets/sign_button.dart';
 import 'package:flutter/material.dart';
+import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -7,7 +8,15 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        title: const Text('Cart', style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black),
+        actions: [
+          const WishlistButton(),
+          const SizedBox(width: 10),
+        ],
+      ),
       body: Column(
         children: [
           Expanded(
@@ -141,6 +150,43 @@ class OrderInfoRow extends StatelessWidget {
         children: [
           Text(label, style: TextStyle(fontSize: 18, fontWeight: isBold ? FontWeight.bold : FontWeight.normal)),
           Text(value, style: TextStyle(fontSize: 18, fontWeight: isBold ? FontWeight.bold : FontWeight.normal)),
+        ],
+      ),
+    );
+  }
+}
+
+class WishlistButton extends StatelessWidget {
+  const WishlistButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const WishlistPage(),
+          ),
+        );
+      },
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.black87,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: const BorderSide(color: Colors.grey, width: 0.5),
+        ),
+      ),
+      child: const Row(
+        children: [
+          Icon(Icons.favorite_border_rounded, size: 20),
+          SizedBox(width: 8),
+          Text('Wishlist', style: TextStyle(fontSize: 16)),
+          SizedBox(width: 4),
+          Icon(Icons.arrow_forward_ios_rounded, size: 16),
         ],
       ),
     );
