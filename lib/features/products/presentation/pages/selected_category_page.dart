@@ -1,4 +1,4 @@
-import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
+import 'package:eshop/features/products/presentation/widgets/vertical_products_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop/config/presentation/rounded_app_bar.dart';
 
@@ -18,7 +18,7 @@ class SelectedCategoryPage extends StatelessWidget {
       child: Column(
         children: [
           
-          ProductsGrid(),
+          VerticalProductsGrid(),
         ],
       ),
       ),

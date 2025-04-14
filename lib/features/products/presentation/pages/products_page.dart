@@ -1,7 +1,7 @@
 import 'package:eshop/core/presentation/widgets/logo.dart';
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
 import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
-import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
+import 'package:eshop/features/products/presentation/widgets/vertical_products_grid.dart';
 import 'package:eshop/features/products/presentation/widgets/promo_banner.dart';
 import 'package:eshop/features/products/presentation/pages/selected_category_page.dart';
 import 'package:eshop/features/products/presentation/widgets/category_button.dart';
@@ -108,7 +108,7 @@ class _ProductsPageState extends State<ProductsPage> {
               child: Row(
                 children: [
                   CategoryButton(
-                    label: 'Technology',
+                    label: 'Electronics',
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -120,7 +120,7 @@ class _ProductsPageState extends State<ProductsPage> {
                   ),
                   const SizedBox(width: 10),
                   CategoryButton(
-                    label: 'Fashion',
+                    label: 'Men\'s clothing',
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -132,7 +132,7 @@ class _ProductsPageState extends State<ProductsPage> {
                   ),
                   const SizedBox(width: 10),
                   CategoryButton(
-                    label: 'Sports',
+                    label: 'Jewelery',
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -144,7 +144,7 @@ class _ProductsPageState extends State<ProductsPage> {
                   ),
                   const SizedBox(width: 10),
                   CategoryButton(
-                    label: 'Superman',
+                    label: 'Women\'s clothing',
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -159,7 +159,7 @@ class _ProductsPageState extends State<ProductsPage> {
             ),
             const SizedBox(height: 20), // Add spacing after the category buttons
             const Text('Products', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            const ProductsGrid(),
+            const VerticalProductsGrid(),
           ],
         ),
       ),

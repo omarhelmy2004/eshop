@@ -1,5 +1,5 @@
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
-import 'package:eshop/features/products/presentation/widgets/products_grid.dart';
+import 'package:eshop/features/products/presentation/widgets/vertical_products_grid.dart';
 import 'package:flutter/material.dart';
 
 class WishlistPage extends StatelessWidget {
@@ -16,7 +16,7 @@ class WishlistPage extends StatelessWidget {
             child: CustomSearchBar(enColor: Colors.green,
                   foColor: Colors.black,),
           ),
-          ProductsGrid(),
+          VerticalProductsGrid(),
         ],
       ),
       ),

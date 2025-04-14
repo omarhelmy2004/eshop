@@ -1,8 +1,8 @@
 import 'package:eshop/features/products/presentation/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
-class ProductsGrid extends StatelessWidget {
-  const ProductsGrid({
+class VerticalProductsGrid extends StatelessWidget {
+  const VerticalProductsGrid({
     super.key,
   });
 
