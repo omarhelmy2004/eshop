@@ -1,7 +1,8 @@
+import 'package:eshop/features/account/presentation/pages/profile_page.dart';
 import 'package:eshop/features/cart/presentation/pages/cart_page.dart';
 import 'package:eshop/features/products/presentation/pages/category_page.dart';
 import 'package:eshop/features/products/presentation/pages/products_page.dart';
-import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
+
 import 'package:flutter/material.dart';
 
 
@@ -14,12 +15,8 @@ class ViewsListWidget extends StatelessWidget {
       const ProductsPage(),
       const CategoryPage(),
       const CartPage(),
-      const WishlistPage(),
+      const ProfilePage(),
      
-      // const ReportsView(),
-      // const BudgetView(),
-      // const TransactionsView(),
-      // GoalsView(onEdit: () {  },),
     ][selectedIndex];
   }
 }

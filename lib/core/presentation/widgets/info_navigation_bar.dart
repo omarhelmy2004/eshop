@@ -36,9 +36,9 @@ class InfoBottomNavigationBar extends StatelessWidget {
         label: 'My Cart',
       ),
       BottomNavigationBarItem(
-        activeIcon: Icon(Icons.favorite_rounded),
-        icon: Icon(Icons.favorite_border_rounded),
-        label: 'Wishlist',
+        activeIcon: Icon(Icons.person_2_rounded),
+        icon: Icon(Icons.person_2_outlined),
+        label: 'Profile',
       ),
       
     ];
