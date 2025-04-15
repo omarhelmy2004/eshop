@@ -5,9 +5,9 @@ class ProductModel {
   final String description;
   final String image;
   final String category;
-  final String brand;
-  final String model;
-  final String color;
+  final String? brand;
+  final String? model;
+  final String? color;
   final int? discount;
   final bool? popular;
   final bool? onSale;

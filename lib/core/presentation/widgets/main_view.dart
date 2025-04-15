@@ -1,7 +1,9 @@
 import 'package:eshop/core/presentation/widgets/info_navigation_bar.dart';
 import 'package:eshop/core/presentation/widgets/views_list_widget.dart';
+import 'package:eshop/features/products/presentation/cubit/product_cubit.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class MainView extends StatefulWidget {
@@ -33,15 +35,24 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-        
-        
-        bottomNavigationBar: InfoBottomNavigationBar(
-          onItemTapped: _onItemTapped,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ProductCubit(),
         ),
-       
-        body: ViewsListWidget(selectedIndex: selectedIndex));
+      ],
+      child: 
+        Scaffold(
+          
+            
+            
+            bottomNavigationBar: InfoBottomNavigationBar(
+              onItemTapped: _onItemTapped,
+            ),
+           
+            body: ViewsListWidget(selectedIndex: selectedIndex)),
+      
+    );
   }
 }
 

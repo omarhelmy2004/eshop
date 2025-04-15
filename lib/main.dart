@@ -38,7 +38,7 @@ class Eshop extends StatelessWidget {
           MainView.id: (context) => const MainView(),
           ProfilePage.id: (context) => const ProfilePage(),
         },
-        initialRoute: LoginPage.id,
+        initialRoute: MainView.id,
       ),
     );
   }
