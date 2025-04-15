@@ -1,8 +1,9 @@
+import 'package:eshop/features/products/data/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatefulWidget {
-  const ProductCard({super.key});
-
+  const ProductCard({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   _ProductCardState createState() => _ProductCardState();
 }
@@ -29,26 +30,27 @@ class _ProductCardState extends State<ProductCard> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
+                  
                   child: Image.network(
-                    'https://m.media-amazon.com/images/I/81uiWMk9dnL._AC_SL1500_.jpg', // Changed to network image
+                    widget.productModel.image, // Changed to network image
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  'Nike air jordan retro fa...',
+                  widget.productModel.title,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   overflow: TextOverflow.ellipsis, // Added ellipsis for overflow
                 ),
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
                     Text(
-                      '\$126.00',
+                        '\$${widget.productModel.price.toString()}',
                       style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
                     SizedBox(width: 5),

@@ -12,7 +12,7 @@ class HorizontalProductsGrid extends StatelessWidget {
     return Expanded(
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 20,
+        itemCount: productsList.length,
         
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           
@@ -23,7 +23,7 @@ class HorizontalProductsGrid extends StatelessWidget {
           
         ),
         itemBuilder: (context, index) {
-          return const ProductCard();
+          return  ProductCard(productModel: productsList[index],);
         },
       ),
     );

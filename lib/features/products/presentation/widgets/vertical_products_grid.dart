@@ -18,7 +18,7 @@ class VerticalProductsGrid extends StatelessWidget {
           childAspectRatio: 0.7,
         ),
         itemBuilder: (context, index) {
-          return const ProductCard();
+          // return const ProductCard();
         },
       ),
     );

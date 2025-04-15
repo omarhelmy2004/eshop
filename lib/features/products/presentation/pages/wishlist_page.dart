@@ -46,10 +46,10 @@ class WishlistPage extends StatelessWidget {
                 itemCount: wishlistItems.length,
                 itemBuilder: (context, index) {
                   final item = wishlistItems[index];
-                  return ProductCard(
-                    key: ValueKey(item['title']),
-                    // Pass necessary data to ProductCard
-                  );
+                  // return ProductCard(
+                  //   key: ValueKey(item['title']),
+                  //   // Pass necessary data to ProductCard
+                  // );
                 },
               ),
             ),
