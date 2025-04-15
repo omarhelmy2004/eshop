@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ConfirmPasswordInputField extends StatelessWidget {
-  const ConfirmPasswordInputField({super.key, required this.validator,  required this.enColor,  required this.foColor});
+  const ConfirmPasswordInputField({super.key, required this.validator,  required this.enColor,  required this.foColor, this.controller});
 
   final String? Function(String?) validator;
   final Color enColor;
   final Color foColor;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,6 +15,7 @@ class ConfirmPasswordInputField extends StatelessWidget {
         const Text("Confirm Password *", style: TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(height: 5),
         TextFormField(
+          controller: controller,
           obscureText: true,
           validator: validator,
           decoration: InputDecoration(

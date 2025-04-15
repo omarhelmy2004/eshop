@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PasswordInputField extends StatefulWidget {
-  const PasswordInputField({super.key, required this.validator, required this.enColor, required this.foColor});
+  const PasswordInputField({super.key, required this.validator, required this.enColor, required this.foColor, this.controller});
 
   final String? Function(String?) validator;
     final Color enColor;
   final Color foColor;
+  final TextEditingController? controller;
   @override
   _PasswordInputFieldState createState() => _PasswordInputFieldState();
 }
@@ -21,6 +22,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
         const Text("Password *", style: TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(height: 5),
         TextFormField(
+          controller: widget.controller,
           obscureText: _obscurePassword,
           validator: widget.validator,
           decoration: InputDecoration(

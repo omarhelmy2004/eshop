@@ -10,13 +10,14 @@ class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
 
   static String id = 'SignupPage';
-
+  
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
 class _SignupPageState extends State<SignupPage> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
@@ -58,6 +59,7 @@ class _SignupPageState extends State<SignupPage> {
               ),
               const SizedBox(height: 20),
               EmailInputField(
+                controller: _emailController, // Use TextEditingController
                 enColor: Colors.green,
                 foColor: Colors.black,
                 validator: (value) {
@@ -69,6 +71,7 @@ class _SignupPageState extends State<SignupPage> {
               ),
               const SizedBox(height: 15),
               PasswordInputField(
+                controller: _passwordController, // Add TextEditingController
                 enColor: Colors.green,
                 foColor: Colors.black,
                 validator: (value) {
@@ -80,6 +83,7 @@ class _SignupPageState extends State<SignupPage> {
               ),
               const SizedBox(height: 15),
               ConfirmPasswordInputField(
+                controller: _passwordController, // Add TextEditingController
                 enColor: Colors.green,
                 foColor: Colors.black,
                 validator: (value) {
@@ -98,10 +102,11 @@ class _SignupPageState extends State<SignupPage> {
                 formKey: _formKey,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
+                    final email = _emailController.text;
+                    final password = _passwordController.text;
                     // Handle signup logic here
                   }
                 },
-       
               ),
             ],
           ),
