@@ -116,8 +116,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   const SizedBox(height: 15),
                   ConfirmPasswordInputField(
-                    controller:
-                        _passwordController, // Add TextEditingController
+                    // Add TextEditingController
                     enColor: Colors.green,
                     foColor: Colors.black,
                     validator: (value) {
