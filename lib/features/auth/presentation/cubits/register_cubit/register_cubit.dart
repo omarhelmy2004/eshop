@@ -4,8 +4,8 @@ import 'package:meta/meta.dart';
 
 part 'register_cubit_state.dart';
 
-class RegisterCubitCubit extends Cubit<RegisterCubitState> {
-  RegisterCubitCubit() : super(RegisterCubitInitial());
+class RegisterCubit extends Cubit<RegisterCubitState> {
+  RegisterCubit() : super(RegisterCubitInitial());
   Future<void> registerUser({required String email, required String password}) async {
     try {
       emit(RegisterCubitLoading());

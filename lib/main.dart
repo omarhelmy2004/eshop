@@ -1,7 +1,7 @@
 import 'package:eshop/core/presentation/widgets/main_view.dart';
 import 'package:eshop/features/account/presentation/pages/profile_page.dart';
 import 'package:eshop/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
-import 'package:eshop/features/auth/presentation/cubits/register_cubit/register_cubit_cubit.dart';
+import 'package:eshop/features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:eshop/features/auth/presentation/pages/login_page.dart';
 import 'package:eshop/features/auth/presentation/pages/signup_page.dart';
 import 'package:eshop/firebase_options.dart';
@@ -28,7 +28,7 @@ class Eshop extends StatelessWidget {
       providers: [
        
         BlocProvider(create: (context) => LoginCubit()),
-        BlocProvider(create: (context) => RegisterCubitCubit()),
+        BlocProvider(create: (context) => RegisterCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
