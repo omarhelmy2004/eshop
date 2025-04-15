@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
           } else if (state is LoginSuccess) {
             // Navigate to the main view or show success message
             Navigator.pop(context); // Close the loading dialog
-            Navigator.pushReplacementNamed(context, MainView.id, arguments: state.userId);
+            Navigator.pushReplacementNamed(context, MainView.id, arguments: state.userEmail);
           } else if (state is LoginFailure) {
             // Show an error message
             Navigator.pop(context); // Close the loading dialog

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
   static const String id = 'PprofilePage';
+
   @override
   Widget build(BuildContext context) {
+      final String userEmail = ModalRoute.of(context)?.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile', style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold)),
@@ -49,11 +51,11 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const Column(
+                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Ahlan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                        Text('omarhelmy62004@gmail.com', style: TextStyle(fontSize: 14, color: Colors.grey)),
+                        const Text('Ahlan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text(userEmail, style: const TextStyle(fontSize: 14, color: Colors.grey)),
                       ],
                     ),
                     const Spacer(),
@@ -142,13 +144,13 @@ class ProfileOptionCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const ProfileOptionCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     required this.icon,
     required this.color,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

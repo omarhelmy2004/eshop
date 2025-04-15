@@ -6,8 +6,8 @@ sealed class LoginState {}
 final class LoginInitial extends LoginState {}
 final class LoginLoading extends LoginState {}
 final class LoginSuccess extends LoginState {
-  final String userId;
-  LoginSuccess(this.userId);
+  final String? userEmail;
+  LoginSuccess(this.userEmail);
 }
 final class LoginFailure extends LoginState {
   final String error;
