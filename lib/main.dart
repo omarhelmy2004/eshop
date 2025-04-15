@@ -2,10 +2,16 @@ import 'package:eshop/core/presentation/widgets/main_view.dart';
 import 'package:eshop/features/account/presentation/pages/profile_page.dart';
 import 'package:eshop/features/auth/presentation/pages/login_page.dart';
 import 'package:eshop/features/auth/presentation/pages/signup_page.dart';
+import 'package:eshop/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async { 
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const Eshop());
 }
 
@@ -23,7 +29,7 @@ class Eshop extends StatelessWidget {
         ProfilePage.id: (context) => const ProfilePage(),
      
       },
-      initialRoute: MainView.id,
+      initialRoute: LoginPage.id,
     );
   }
 }
