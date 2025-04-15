@@ -9,17 +9,24 @@ part 'product_state.dart';
 class ProductCubit extends Cubit<ProductState> {
   ProductCubit() : super(ProductInitial());
   
-  Future<List<ProductModel>> getAllProducts() async {
-    Map<String, dynamic> data =
-        await Api().get(url: 'https://fakestoreapi.in/api/products');
-
-    List<ProductModel> productsList = [];
-    for (int i = 0; i < data.length; i++) {
-      productsList.add(
-        ProductModel.fromJson(data[i]),
-      );
-    }
-    return productsList;
+  void getAllProducts() async {
+    try {
+  emit(ProductLoading());
+  Map<String, dynamic> response =
+      await Api().get(url: 'https://fakestoreapi.in/api/products');
+  
+  if (response['status'] == 'SUCCESS' && response['products'] is List) {
+    List<dynamic> productsData = response['products'];
+    List<ProductModel> productsList = productsData
+        .map((product) => ProductModel.fromJson(product))
+        .toList();
+        
+   emit(ProductLoaded(productsList));
+    
+  } 
+} on Exception catch (e) {
+  emit(ProductError(e.toString()));
+}
   }
 }
 
