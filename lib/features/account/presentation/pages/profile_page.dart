@@ -1,103 +1,177 @@
 import 'package:flutter/material.dart';
-import 'package:eshop/config/presentation/toggle_switch.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
-  static String id = 'ProfilePage';
-
-  @override
-  _ProfilePageState createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  bool showOrderHistory = true;
-
-  void toggleView(int index) {
-    setState(() {
-      showOrderHistory = index == 0;
-    });
-  }
-
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+  static const String id = 'PprofilePage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile', style: TextStyle(fontSize: 24)), // Increased size
-        backgroundColor: Colors.green,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
-          ),
-        ),
+        title: const Text('Profile', style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            CustomToggleSwitch(
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          // User Info Section
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.green.shade50, Colors.green.shade100],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: Text(
+                        'O',
+                        style: TextStyle(color: Colors.green),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Ahlan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text('omarhelmy62004@gmail.com', style: TextStyle(fontSize: 14, color: Colors.grey)),
+                      ],
+                    ),
+                    const Spacer(),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('Edit', style: TextStyle(fontSize: 16, color: Colors.green)),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
 
-              labels: const ['Order History', 'Email'],
-              initialIndex: showOrderHistory ? 0 : 1,
-              onToggle: toggleView,
+          // Options Grid
+          GridView.count(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: 2,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+            children: [
+              ProfileOptionCard(
+                title: 'Orders',
+                subtitle: 'Manage & track',
+                icon: Icons.shopping_bag,
+                color: Colors.orange[700]!,
+                onTap: () {
+                  // Handle Orders tap
+                },
+              ),
+              ProfileOptionCard(
+                title: 'Wishlist',
+                subtitle: '2 saved items',
+                icon: Icons.favorite,
+                color: Colors.red[700]!,
+                onTap: () {
+                  // Handle Wishlist tap
+                },
+              ),
+            ],
+          ),
+          const SizedBox(height: 24),
+
+          // Sign Out Button
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
-            Expanded(
-              child: showOrderHistory ? const OrderHistory() : const EmailInfo(),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Handle logout logic here
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
-                minimumSize: const Size(200, 60), // Increased size
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: InkWell(
+                onTap: () {
+                  // Handle sign out
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.exit_to_app, size: 32, color: Colors.grey[800]),
+                    const SizedBox(width: 16),
+                    const Text('Sign Out', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  ],
                 ),
               ),
-              child: const Text('Logout', style: TextStyle(fontSize: 20, color: Colors.black)), // Increased size and black text
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class OrderHistory extends StatelessWidget {
-  const OrderHistory({super.key});
+class ProfileOptionCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final Color color;
+  final VoidCallback onTap;
+
+  const ProfileOptionCard({
+    Key? key,
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.color,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.all(16.0),
-      children: const [
-        ListTile(
-          title: Text('Order #12345', style: TextStyle(fontSize: 18)), // Increased size
-          subtitle: Text('Date: 2023-01-01\nTotal: \$100.00', style: TextStyle(fontSize: 16)), // Increased size
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(icon, size: 32, color: color),
+              const SizedBox(height: 8),
+              Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Text(subtitle, style: const TextStyle(fontSize: 14, color: Colors.grey)),
+            ],
+          ),
         ),
-        ListTile(
-          title: Text('Order #12346', style: TextStyle(fontSize: 18)), // Increased size
-          subtitle: Text('Date: 2023-02-01\nTotal: \$150.00', style: TextStyle(fontSize: 16)), // Increased size
-        ),
-        // Add more orders here
-      ],
-    );
-  }
-}
-
-class EmailInfo extends StatelessWidget {
-  const EmailInfo({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Email: user@example.com', style: TextStyle(fontSize: 18)),
-          SizedBox(height: 20),
-         
-        ],
       ),
     );
   }
