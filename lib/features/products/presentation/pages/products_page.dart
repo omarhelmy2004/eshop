@@ -181,27 +181,32 @@ class _ProductsPageState extends State<ProductsPage> {
             style:
                 TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
       ),
-       SizedBox(height: 250, child: HorizontalProductsGrid(productsList: state.productsList,)),
+       SizedBox(
+         height: 250,
+         child: HorizontalProductsGrid(
+           productsList: (state.productsList..shuffle()).take(20).toList(),
+         ),
+       ),
       const SizedBox(
           height: 40), // Add spacing after the category buttons
   
       const Padding(
         padding: EdgeInsets.only(bottom: 9.0),
-        child: Text('Top rated',
+        child: Text('Hot Sale',
             style:
                 TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
       ),
-       SizedBox(height: 250, child: HorizontalProductsGrid(productsList: state.productsList)),
+       SizedBox(height: 250, child: HorizontalProductsGrid(productsList: state.productsList.where((product) => product.onSale == true).toList(),)),
       const SizedBox(
           height: 40), // Add spacing after the category buttons
   
       const Padding(
         padding: EdgeInsets.only(bottom: 9.0),
-        child: Text('Hot sales',
+        child: Text('Most Popular',
             style:
                 TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
       ),
-       SizedBox(height: 250, child: HorizontalProductsGrid(productsList: state.productsList)),
+       SizedBox(height: 250, child: HorizontalProductsGrid(productsList: state.productsList.where((product) => product.popular == true).toList(),)),
     ],
   );
             } else if (state is ProductLoading) {
