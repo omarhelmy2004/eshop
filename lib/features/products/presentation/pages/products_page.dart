@@ -72,52 +72,78 @@ class _ProductsPageState extends State<ProductsPage> {
                     child: Row(
                       children: [
                         CategoryButton(
-                          label: 'Electronics',
+                          label: 'TV',
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Technology'),
+                                    categoryName: 'TV'),
                               ),
                             );
                           },
                         ),
                         const SizedBox(width: 10),
                         CategoryButton(
-                          label: 'Men\'s clothing',
+                          label: 'Audio',
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Fashion'),
+                                    categoryName: 'Audio'),
                               ),
                             );
                           },
                         ),
                         const SizedBox(width: 10),
                         CategoryButton(
-                          label: 'Jewelery',
+                          label: 'laptop',
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Sports'),
+                                    categoryName: 'laptop'),
                               ),
                             );
                           },
                         ),
                         const SizedBox(width: 10),
                         CategoryButton(
-                          label: 'Women\'s clothing',
+                          label: 'Mobile',
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Superman'),
+                                    categoryName: 'Mobile'),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(width: 10),
+                        CategoryButton(
+                          label: 'Gaming',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SelectedCategoryPage(
+                                    categoryName: 'Gaming'),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(width: 10),
+                        CategoryButton(
+                          label: 'Appliances',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SelectedCategoryPage(
+                                    categoryName: 'Appliances'),
                               ),
                             );
                           },
