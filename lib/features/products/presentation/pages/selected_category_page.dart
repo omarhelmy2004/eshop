@@ -12,7 +12,7 @@ class SelectedCategoryPage extends StatelessWidget {
     return Scaffold(
       appBar: RoundedAppBar(
         text: categoryName,
-        color: Colors.green,
+        color: Colors.white,
       ),
       body: const Padding(padding:EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
       child: Column(
