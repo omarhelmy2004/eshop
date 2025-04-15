@@ -35,6 +35,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
+  http: ^1.3.0
   toggle_switch: ^2.3.0
 
 dev_dependencies:
