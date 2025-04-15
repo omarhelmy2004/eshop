@@ -6,8 +6,9 @@ sealed class RegisterCubitState {}
 final class RegisterCubitInitial extends RegisterCubitState {}
 final class RegisterCubitLoading extends RegisterCubitState {}
 final class RegisterCubitSuccess extends RegisterCubitState {
-
-  RegisterCubitSuccess();
+final UserCredential user;
+  RegisterCubitSuccess(this.user);
+ 
 }
 final class RegisterCubitFailure extends RegisterCubitState {
   final String error;
