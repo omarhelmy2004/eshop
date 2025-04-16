@@ -1,5 +1,7 @@
 import 'package:eshop/features/products/data/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:eshop/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductCard extends StatefulWidget {
   const ProductCard({super.key, required this.productModel});
@@ -63,7 +65,11 @@ class _ProductCardState extends State<ProductCard> {
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Handle buy action here
+                    final userId = "user123"; // Replace with actual user ID logic
+                    context.read<CartCubit>().addItemToCart(userId, widget.productModel);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Product added to cart!')),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,

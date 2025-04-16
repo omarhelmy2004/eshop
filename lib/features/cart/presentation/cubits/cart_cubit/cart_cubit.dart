@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eshop/features/products/data/product_model.dart';
+import 'package:eshop/features/cart/data/cart_model.dart';
 import 'package:meta/meta.dart';
 
 part 'cart_state.dart';
