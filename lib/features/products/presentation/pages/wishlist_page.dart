@@ -1,4 +1,4 @@
-import 'package:eshop/features/products/presentation/widgets/product_card.dart';
+
 import 'package:eshop/features/wishlist/presentation/cubits/wishlist_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

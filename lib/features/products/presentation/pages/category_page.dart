@@ -1,13 +1,16 @@
 import 'package:eshop/core/presentation/widgets/logo.dart';
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
+import 'package:eshop/features/products/presentation/cubit/product_cubit.dart';
 import 'package:eshop/features/products/presentation/widgets/category_img.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       appBar: AppBar(
         title: const Row(
@@ -43,7 +46,7 @@ class CategoryPage extends StatelessWidget {
       width: 150,
                       child: CategoryIMG(
                         image: 'assets/images/images.jpg',
-                        text: 'Electronics',
+                        text: 'tv',
                         height: 100, // Increased size
                         width: 100,  // Increased size
                         fontSize: 18, // Set font size to 18
@@ -57,7 +60,7 @@ class CategoryPage extends StatelessWidget {
       width: 150,
                       child: CategoryIMG(
                         image: 'assets/images/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg',
-                        text: 'Jewelery',
+                        text: 'audio',
                         height: 100, // Increased size
                         width: 100,  // Increased size
                         fontSize: 18, // Set font size to 18
@@ -77,7 +80,7 @@ class CategoryPage extends StatelessWidget {
       width: 150,
                       child: CategoryIMG(
                         image: 'assets/images/mens.jpg',
-                        text: 'Men\'s Clothing',
+                        text: 'mobile',
                         height: 100, // Increased size
                         width: 100,  // Increased size
                         fontSize: 18, // Set font size to 18
@@ -91,7 +94,7 @@ class CategoryPage extends StatelessWidget {
       width: 150,
                       child: CategoryIMG(
                         image: 'assets/images/womencloth.jpg',
-                        text: 'Women\'s Clothing',
+                        text: 'gaming',
                         height: 100, // Increased size
                         width: 100,  // Increased size
                         fontSize: 18, // Set font size to 18

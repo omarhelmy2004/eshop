@@ -5,6 +5,7 @@ import 'package:eshop/features/auth/presentation/cubits/register_cubit/register_
 import 'package:eshop/features/auth/presentation/pages/login_page.dart';
 import 'package:eshop/features/auth/presentation/pages/signup_page.dart';
 import 'package:eshop/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
+import 'package:eshop/features/products/presentation/cubit/product_cubit.dart';
 import 'package:eshop/features/wishlist/presentation/cubits/wishlist_cubit.dart';
 import 'package:eshop/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,6 +34,7 @@ class Eshop extends StatelessWidget {
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => CartCubit()),
         BlocProvider(create: (context) => WishlistCubit()),
+        BlocProvider(create: (context) => ProductCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

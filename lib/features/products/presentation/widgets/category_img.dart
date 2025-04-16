@@ -16,13 +16,20 @@ class CategoryIMG extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      
       child: GestureDetector(
         onTap: () {
+          final productCubit = context.read<ProductCubit>();
+          if (productCubit.state is! ProductLoaded) {
+            productCubit.getAllProducts();
+          }
+
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => SelectedCategoryPage(categoryName: text, productslist: BlocProvider.of<ProductCubit>(context).products,),
+              builder: (context) => SelectedCategoryPage(
+                categoryName: text,
+                productslist: productCubit.products,
+              ),
             ),
           );
         },
