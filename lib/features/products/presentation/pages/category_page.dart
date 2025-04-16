@@ -43,7 +43,7 @@ class CategoryPage extends StatelessWidget {
                       height: 150,
       width: 150,
                       child: CategoryIMG(
-                        image: 'assets/images/images.jpg',
+                        image: 'assets/images/R.png',
                         text: 'tv',
                         height: 100, // Increased size
                         width: 100,  // Increased size
@@ -57,7 +57,7 @@ class CategoryPage extends StatelessWidget {
                       height: 150,
       width: 150,
                       child: CategoryIMG(
-                        image: 'assets/images/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg',
+                        image: 'assets/images/foldable-gaming-headset-png-05252024-vkz911ngun3r89k0.png',
                         text: 'audio',
                         height: 100, // Increased size
                         width: 100,  // Increased size
@@ -77,7 +77,7 @@ class CategoryPage extends StatelessWidget {
                       height: 150,
       width: 150,
                       child: CategoryIMG(
-                        image: 'assets/images/mens.jpg',
+                        image: 'assets/images/images.jpg',
                         text: 'mobile',
                         height: 100, // Increased size
                         width: 100,  // Increased size
@@ -91,7 +91,7 @@ class CategoryPage extends StatelessWidget {
                       height: 150,
       width: 150,
                       child: CategoryIMG(
-                        image: 'assets/images/womencloth.jpg',
+                        image: 'assets/images/gamer-controller-isolated-png.png',
                         text: 'gaming',
                         height: 100, // Increased size
                         width: 100,  // Increased size
