@@ -43,4 +43,21 @@ class ProductModel {
       onSale: json['onSale'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'price': price,
+      'description': description,
+      'image': image,
+      'category': category,
+      'brand': brand,
+      'model': model,
+      'color': color,
+      'discount': discount,
+      'popular': popular,
+      'onSale': onSale,
+    };
+  }
 }
