@@ -57,7 +57,7 @@ class CartPage extends StatelessWidget {
                       )).toList(),
                     ),
                   ),
-                  const OrderInfo(),
+                  OrderInfo(cartItems: cartItems),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 9),
                     child: SignupButton(
@@ -185,22 +185,31 @@ class CartItem extends StatelessWidget {
 }
 
 class OrderInfo extends StatelessWidget {
-  const OrderInfo({super.key});
+  final List<ProductModel> cartItems;
+
+  const OrderInfo({
+    super.key,
+    required this.cartItems,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
+    double subtotal = cartItems.fold(0, (sum, item) => sum + (item.price * item.quantity));
+    double shippingCost = subtotal > 0 ? 5.0 : 0.0; // Example shipping cost logic
+    double total = subtotal + shippingCost;
+
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Order Info',
+          const Text('Order Info',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          SizedBox(height: 8),
-          OrderInfoRow(label: 'Subtotal', value: '\$0.00'),
-          OrderInfoRow(label: 'Shipping Cost', value: '\$0.00'),
-          Divider(),
-          OrderInfoRow(label: 'Total', value: '\$0.00', isBold: true),
+          const SizedBox(height: 8),
+          OrderInfoRow(label: 'Subtotal', value: '\$${subtotal.toStringAsFixed(2)}'),
+          OrderInfoRow(label: 'Shipping Cost', value: '\$${shippingCost.toStringAsFixed(2)}'),
+          const Divider(),
+          OrderInfoRow(label: 'Total', value: '\$${total.toStringAsFixed(2)}', isBold: true),
         ],
       ),
     );
