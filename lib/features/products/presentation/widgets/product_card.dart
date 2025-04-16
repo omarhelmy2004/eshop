@@ -32,10 +32,18 @@ class _ProductCardState extends State<ProductCard> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
-                  
                   child: Image.network(
-                    widget.productModel.image, // Changed to network image
+                    widget.productModel.image,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Colors.grey[300],
+                        child: const Icon(
+                          Icons.broken_image,
+                          color: Colors.grey,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class PromoBanner extends StatelessWidget {
@@ -60,9 +59,20 @@ class PromoBanner extends StatelessWidget {
             ),
             const Spacer(),
             Image.network(
-              image, // Replace with the actual image path
+              image,
               height: 120,
               width: 135,
+              errorBuilder: (context, error, stackTrace) {
+                return Container(
+                  height: 120,
+                  width: 135,
+                  color: Colors.grey[300],
+                  child: const Icon(
+                    Icons.broken_image,
+                    color: Colors.grey,
+                  ),
+                );
+              },
             ),
           ],
         ),
