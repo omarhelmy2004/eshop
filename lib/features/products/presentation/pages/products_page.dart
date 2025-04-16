@@ -65,7 +65,19 @@ class _ProductsPageState extends State<ProductsPage> {
             if (state is ProductLoaded) {
               return ListView(
                 children: [
-                  const PromoBannerSection(),
+                  GestureDetector(child:  PromoBannerSection(),
+                    onTap: () {
+                     Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>  SelectedCategoryPage(
+                            categoryName: 'audio',
+                            productslist: state.productsList, // Pass the relevant products list
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                   const SizedBox(height: 20), // Add spacing after the banner
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
