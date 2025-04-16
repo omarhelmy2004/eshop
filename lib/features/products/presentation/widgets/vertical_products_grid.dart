@@ -1,16 +1,21 @@
+import 'package:eshop/features/products/data/product_model.dart';
 import 'package:eshop/features/products/presentation/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
 class VerticalProductsGrid extends StatelessWidget {
   const VerticalProductsGrid({
-    super.key,
+    super.key, required this.productsList, required this.categoryName,
   });
-
+  final String categoryName;
+final List<ProductModel> productsList;
   @override
   Widget build(BuildContext context) {
+    final List<ProductModel> filteredProducts = productsList
+              .where((product) => product.category== categoryName.toLowerCase())
+              .toList();
     return Expanded(
       child: GridView.builder(
-        itemCount: 20,
+        itemCount: filteredProducts.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 20,
@@ -18,8 +23,10 @@ class VerticalProductsGrid extends StatelessWidget {
           childAspectRatio: 0.7,
         ),
         itemBuilder: (context, index) {
-          // return const ProductCard();
-        },
+          
+          return ProductCard(productModel: filteredProducts[index]);
+        }
+        ,
       ),
     );
   }

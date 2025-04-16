@@ -1,5 +1,7 @@
+import 'package:eshop/features/products/presentation/cubit/product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop/features/products/presentation/pages/selected_category_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryIMG extends StatelessWidget {
   const CategoryIMG({
@@ -20,7 +22,7 @@ class CategoryIMG extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => SelectedCategoryPage(categoryName: text),
+              builder: (context) => SelectedCategoryPage(categoryName: text, productslist: BlocProvider.of<ProductCubit>(context).products,),
             ),
           );
         },

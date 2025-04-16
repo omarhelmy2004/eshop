@@ -8,7 +8,7 @@ part 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState> {
   ProductCubit() : super(ProductInitial());
-  
+  List<ProductModel> products = [];
   void getAllProducts() async {
     try {
   emit(ProductLoading());
@@ -20,7 +20,7 @@ class ProductCubit extends Cubit<ProductState> {
     List<ProductModel> productsList = productsData
         .map((product) => ProductModel.fromJson(product))
         .toList();
-        
+    products = productsList;
    emit(ProductLoaded(productsList));
     
   } 

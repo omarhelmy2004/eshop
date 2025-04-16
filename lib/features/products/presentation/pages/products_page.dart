@@ -77,8 +77,8 @@ class _ProductsPageState extends State<ProductsPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'TV'),
+                                builder: (context) =>  SelectedCategoryPage(
+                                    categoryName: 'TV', productslist: state.productsList,),
                               ),
                             );
                           },
@@ -90,25 +90,13 @@ class _ProductsPageState extends State<ProductsPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Audio'),
+                                builder: (context) =>  SelectedCategoryPage(
+                                    categoryName: 'Audio', productslist: state.productsList),
                               ),
                             );
                           },
                         ),
-                        const SizedBox(width: 10),
-                        CategoryButton(
-                          label: 'laptop',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'laptop'),
-                              ),
-                            );
-                          },
-                        ),
+                       
                         const SizedBox(width: 10),
                         CategoryButton(
                           label: 'Mobile',
@@ -116,8 +104,8 @@ class _ProductsPageState extends State<ProductsPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Mobile'),
+                                builder: (context) =>  SelectedCategoryPage(
+                                    categoryName: 'Mobile', productslist: state.productsList),
                               ),
                             );
                           },
@@ -129,25 +117,13 @@ class _ProductsPageState extends State<ProductsPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Gaming'),
+                                builder: (context) =>  SelectedCategoryPage(
+                                    categoryName: 'Gaming', productslist: state.productsList),
                               ),
                             );
                           },
                         ),
-                        const SizedBox(width: 10),
-                        CategoryButton(
-                          label: 'Appliances',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SelectedCategoryPage(
-                                    categoryName: 'Appliances'),
-                              ),
-                            );
-                          },
-                        ),
+                       
                       ],
                     ),
                   ),
@@ -213,7 +189,7 @@ class _ProductsPageState extends State<ProductsPage> {
 }
 
 class PromoBannerSection extends StatefulWidget {
-  const PromoBannerSection({Key? key}) : super(key: key);
+  const PromoBannerSection({super.key});
 
   @override
   State<PromoBannerSection> createState() => _PromoBannerSectionState();
