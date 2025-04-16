@@ -1,3 +1,4 @@
+import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -93,7 +94,12 @@ class ProfilePage extends StatelessWidget {
                 icon: Icons.favorite,
                 color: Colors.red[700]!,
                 onTap: () {
-                  // Handle Wishlist tap
+                  Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WishlistPage(),
+                ),
+              );
                 },
               ),
             ],

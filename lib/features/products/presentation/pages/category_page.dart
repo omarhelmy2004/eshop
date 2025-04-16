@@ -1,9 +1,7 @@
 import 'package:eshop/core/presentation/widgets/logo.dart';
 import 'package:eshop/core/presentation/widgets/search_bar.dart';
-import 'package:eshop/features/products/presentation/cubit/product_cubit.dart';
 import 'package:eshop/features/products/presentation/widgets/category_img.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});
