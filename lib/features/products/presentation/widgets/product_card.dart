@@ -2,6 +2,7 @@ import 'package:eshop/features/products/data/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:eshop/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:eshop/features/wishlist/presentation/cubits/wishlist_cubit.dart';
 
 class ProductCard extends StatefulWidget {
   const ProductCard({super.key, required this.productModel});
@@ -12,6 +13,23 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> {
   bool isWishlisted = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final wishlistCubit = context.read<WishlistCubit>();
+    final userId = "user123"; // Replace with actual user ID logic
+
+    // Check if the product is already in the wishlist
+    wishlistCubit.fetchWishlistItems(userId).then((_) {
+      final state = wishlistCubit.state;
+      if (state is WishlistLoaded) {
+        setState(() {
+          isWishlisted = state.wishlistItems.any((item) => item.id == widget.productModel.id);
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,24 +65,23 @@ class _ProductCardState extends State<ProductCard> {
                   ),
                 ),
               ),
-               Padding(
-                padding: EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   widget.productModel.title,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   overflow: TextOverflow.ellipsis, // Added ellipsis for overflow
                 ),
               ),
-               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
                     Text(
-                        '\$${widget.productModel.price.toString()}',
-                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      '\$${widget.productModel.price.toString()}',
+                      style: const TextStyle(fontSize: 18, color: Colors.black),
                     ),
-                    SizedBox(width: 5),
-                   
+                    const SizedBox(width: 5),
                   ],
                 ),
               ),
@@ -96,9 +113,18 @@ class _ProductCardState extends State<ProductCard> {
             right: 8,
             child: GestureDetector(
               onTap: () {
+                final userId = "user123"; // Replace with actual user ID logic
+                final wishlistCubit = context.read<WishlistCubit>();
+
                 setState(() {
                   isWishlisted = !isWishlisted;
                 });
+
+                if (isWishlisted) {
+                  wishlistCubit.addToWishlist(userId, widget.productModel);
+                } else {
+                  wishlistCubit.removeFromWishlist(userId, widget.productModel);
+                }
               },
               child: Icon(
                 isWishlisted ? Icons.favorite : Icons.favorite_border,
