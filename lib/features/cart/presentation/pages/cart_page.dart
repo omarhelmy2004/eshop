@@ -43,10 +43,17 @@ class CartPage extends StatelessWidget {
                   Expanded(
                     child: ListView(
                       children: cartItems.map((product) => CartItem(
-                        imageUrl: product.image,
-                        title: product.title,
-                        price: product.price,
-                        originalPrice: product.price + 5, // Example logic
+                        product: product,
+                        quantity: product.quantity,
+                        onAddQuantity: () {
+                          context.read<CartCubit>().addQuantity(userId, product);
+                        },
+                        onSubtractQuantity: () {
+                          context.read<CartCubit>().subtractQuantity(userId, product);
+                        },
+                        onRemove: () {
+                          context.read<CartCubit>().removeFromCart(userId, product);
+                        },
                       )).toList(),
                     ),
                   ),
@@ -74,16 +81,18 @@ class CartPage extends StatelessWidget {
 }
 
 class CartItem extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final double price;
-  final double originalPrice;
+  final ProductModel product;
+  final VoidCallback onRemove;
+  final VoidCallback onAddQuantity;
+  final VoidCallback onSubtractQuantity;
+  final int quantity;
 
   const CartItem({
-    required this.imageUrl,
-    required this.title,
-    required this.price,
-    required this.originalPrice,
+    required this.product,
+    required this.onRemove,
+    required this.onAddQuantity,
+    required this.onSubtractQuantity,
+    required this.quantity,
     super.key,
   });
 
@@ -97,7 +106,7 @@ class CartItem extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: Image.network(
-              imageUrl,
+              product.image,
               width: 60,
               height: 60,
               fit: BoxFit.cover,
@@ -120,7 +129,9 @@ class CartItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title.length > 20 ? '${title.substring(0, 20)}...' : title,
+                  product.title.length > 20
+                      ? '${product.title.substring(0, 20)}...'
+                      : product.title,
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -129,7 +140,7 @@ class CartItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '\$$price',
+                  '\$${product.price}',
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -137,7 +148,7 @@ class CartItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '\$$originalPrice',
+                  '\$${product.price + 5}', // Example logic for original price
                   style: const TextStyle(
                     fontSize: 14,
                     decoration: TextDecoration.lineThrough,
@@ -145,6 +156,27 @@ class CartItem extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Column(
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.remove),
+                    onPressed: onSubtractQuantity,
+                  ),
+                  Text('$quantity', style: const TextStyle(fontSize: 18)),
+                  IconButton(
+                    icon: const Icon(Icons.add),
+                    onPressed: onAddQuantity,
+                  ),
+                ],
+              ),
+              IconButton(
+                icon: const Icon(Icons.delete, color: Colors.red),
+                onPressed: onRemove,
+              ),
+            ],
           ),
         ],
       ),

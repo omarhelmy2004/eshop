@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eshop/features/products/data/product_model.dart';
-import 'package:eshop/features/cart/data/cart_model.dart';
 import 'package:meta/meta.dart';
 
 part 'cart_state.dart';
@@ -75,6 +74,72 @@ class CartCubit extends Cubit<CartState> {
       fetchCartItems(userId);
     } catch (e) {
       emit(CartError(e.toString()));
+    }
+  }
+
+  Future<void> addQuantity(String userId, ProductModel product) async {
+    try {
+      emit(CartLoading());
+      final cartRef = _firestore.collection('carts').doc(userId);
+      final cartSnapshot = await cartRef.get();
+
+      if (cartSnapshot.exists) {
+        final List items = cartSnapshot.data()?['items'] ?? [];
+        for (var item in items) {
+          if (item['id'] == product.id) {
+            item['quantity'] = (item['quantity'] ?? 1) + 1;
+          }
+        }
+        await cartRef.update({'items': items});
+      }
+
+      fetchCartItems(userId);
+    } catch (e) {
+      emit(CartError('Failed to increase quantity: $e'));
+    }
+  }
+
+  Future<void> subtractQuantity(String userId, ProductModel product) async {
+    try {
+      emit(CartLoading());
+      final cartRef = _firestore.collection('carts').doc(userId);
+      final cartSnapshot = await cartRef.get();
+
+      if (cartSnapshot.exists) {
+        final List items = cartSnapshot.data()?['items'] ?? [];
+        for (var item in items) {
+          if (item['id'] == product.id) {
+            item['quantity'] = (item['quantity'] ?? 1) - 1;
+            if (item['quantity'] <= 0) {
+              items.remove(item);
+            }
+            break;
+          }
+        }
+        await cartRef.update({'items': items});
+      }
+
+      fetchCartItems(userId);
+    } catch (e) {
+      emit(CartError('Failed to decrease quantity: $e'));
+    }
+  }
+
+  Future<void> removeFromCart(String userId, ProductModel product) async {
+    try {
+      emit(CartLoading());
+      final cartRef = _firestore.collection('carts').doc(userId);
+      final cartSnapshot = await cartRef.get();
+
+      if (cartSnapshot.exists) {
+        final List items = cartSnapshot.data()?['items'] ?? [];
+        items.removeWhere((item) => item['id'] == product.id);
+        await cartRef.update({'items': items});
+      }
+
+      fetchCartItems(userId);
+    } catch (e) {
+      emit(CartError('Failed to remove item from cart: $e'));
     }
   }
 }

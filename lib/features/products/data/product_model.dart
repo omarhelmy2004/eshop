@@ -11,6 +11,7 @@ class ProductModel {
   final int? discount;
   final bool? popular;
   final bool? onSale;
+  int quantity;
 
   ProductModel({
     required this.id,
@@ -25,6 +26,7 @@ class ProductModel {
     this.discount,
     this.popular,
     this.onSale,
+    this.quantity = 1, // Default quantity
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -41,6 +43,7 @@ class ProductModel {
       discount: json['discount'],
       popular: json['popular'],
       onSale: json['onSale'],
+      quantity: json['quantity'] ?? 1, // Parse quantity if available
     );
   }
 
@@ -58,6 +61,7 @@ class ProductModel {
       'discount': discount,
       'popular': popular,
       'onSale': onSale,
+      'quantity': quantity, // Include quantity in JSON
     };
   }
 }
