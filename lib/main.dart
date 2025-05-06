@@ -10,6 +10,9 @@ import 'package:eshop/features/wishlist/presentation/cubits/wishlist_cubit.dart'
 import 'package:eshop/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:eshop/features/cart/presentation/pages/checkout_page.dart';
+import 'package:eshop/features/account/presentation/pages/settings_page.dart';
+import 'package:eshop/features/account/presentation/pages/help_page.dart';
+import 'package:eshop/features/account/presentation/pages/orders_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,6 +45,9 @@ class Eshop extends StatelessWidget {
           SignupPage.id: (context) => const SignupPage(),
           MainView.id: (context) => const MainView(),
           ProfilePage.id: (context) => const ProfilePage(),
+          '/settings': (context) => const SettingsPage(),
+          '/help': (context) => const HelpPage(),
+          '/orders': (context) => const OrdersPage(),
         },
         initialRoute: LoginPage.id,
       ),
