@@ -4,6 +4,7 @@ import 'package:eshop/features/products/data/product_model.dart';
 import 'package:eshop/features/products/presentation/pages/wishlist_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:eshop/features/cart/presentation/pages/checkout_page.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -14,7 +15,11 @@ class CartPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cart', style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold)),
+        title: const Text('Cart',
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.bold)),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
         actions: [
@@ -30,6 +35,8 @@ class CartPage extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             } else if (state is CartLoaded) {
               final cartItems = state.cartItems;
+              final totalAmount =
+                  context.read<CartCubit>().calculateTotalAmount(cartItems);
               if (cartItems.isEmpty) {
                 return const Center(
                   child: Text(
@@ -42,28 +49,54 @@ class CartPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ListView(
-                      children: cartItems.map((product) => CartItem(
-                        product: product,
-                        quantity: product.quantity,
-                        onAddQuantity: () {
-                          context.read<CartCubit>().addQuantity(userId, product);
-                        },
-                        onSubtractQuantity: () {
-                          context.read<CartCubit>().subtractQuantity(userId, product);
-                        },
-                        onRemove: () {
-                          context.read<CartCubit>().removeFromCart(userId, product);
-                        },
-                      )).toList(),
+                      children: cartItems
+                          .map((product) => CartItem(
+                                product: product,
+                                quantity: product.quantity,
+                                onAddQuantity: () {
+                                  context
+                                      .read<CartCubit>()
+                                      .addQuantity(userId, product);
+                                },
+                                onSubtractQuantity: () {
+                                  context
+                                      .read<CartCubit>()
+                                      .subtractQuantity(userId, product);
+                                },
+                                onRemove: () {
+                                  context
+                                      .read<CartCubit>()
+                                      .removeFromCart(userId, product);
+                                },
+                              ))
+                          .toList(),
                     ),
                   ),
                   OrderInfo(cartItems: cartItems),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 9),
-                    child: SignupButton(
-                      onPressed: () {},
-                      formKey: GlobalKey<FormState>(),
-                      text: 'Checkout (${cartItems.length})',
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 18.0, vertical: 9),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CheckoutPage(
+                              cartItems: cartItems,
+                              totalAmount: totalAmount,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        minimumSize: const Size(double.infinity, 50),
+                      ),
+                      child: const Text('Proceed to Checkout',
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ),
                 ],
@@ -194,8 +227,10 @@ class OrderInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double subtotal = cartItems.fold(0, (sum, item) => sum + (item.price * item.quantity));
-    double shippingCost = subtotal > 0 ? 5.0 : 0.0; // Example shipping cost logic
+    double subtotal =
+        cartItems.fold(0, (sum, item) => sum + (item.price * item.quantity));
+    double shippingCost =
+        subtotal > 0 ? 5.0 : 0.0; // Example shipping cost logic
     double total = subtotal + shippingCost;
 
     return Padding(
@@ -206,10 +241,16 @@ class OrderInfo extends StatelessWidget {
           const Text('Order Info',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          OrderInfoRow(label: 'Subtotal', value: '\$${subtotal.toStringAsFixed(2)}'),
-          OrderInfoRow(label: 'Shipping Cost', value: '\$${shippingCost.toStringAsFixed(2)}'),
+          OrderInfoRow(
+              label: 'Subtotal', value: '\$${subtotal.toStringAsFixed(2)}'),
+          OrderInfoRow(
+              label: 'Shipping Cost',
+              value: '\$${shippingCost.toStringAsFixed(2)}'),
           const Divider(),
-          OrderInfoRow(label: 'Total', value: '\$${total.toStringAsFixed(2)}', isBold: true),
+          OrderInfoRow(
+              label: 'Total',
+              value: '\$${total.toStringAsFixed(2)}',
+              isBold: true),
         ],
       ),
     );

@@ -142,4 +142,8 @@ class CartCubit extends Cubit<CartState> {
       emit(CartError('Failed to remove item from cart: $e'));
     }
   }
+
+  double calculateTotalAmount(List<ProductModel> cartItems) {
+    return cartItems.fold(0, (total, item) => total + (item.price * item.quantity));
+  }
 }

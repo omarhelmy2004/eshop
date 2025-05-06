@@ -9,6 +9,7 @@ import 'package:eshop/features/products/presentation/cubit/product_cubit.dart';
 import 'package:eshop/features/wishlist/presentation/cubits/wishlist_cubit.dart';
 import 'package:eshop/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:eshop/features/cart/presentation/pages/checkout_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

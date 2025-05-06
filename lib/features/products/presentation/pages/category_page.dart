@@ -18,7 +18,7 @@ class CategoryPage extends StatelessWidget {
             Expanded(
               child: SizedBox(
                 height: 40,
-                child: CustomSearchBar(enColor: Colors.green, foColor: Colors.black),
+                
               ),
             ),
           ],

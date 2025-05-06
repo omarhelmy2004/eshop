@@ -8,6 +8,7 @@ import 'package:eshop/features/products/presentation/pages/selected_category_pag
 import 'package:eshop/features/products/presentation/widgets/category_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'search_page.dart';
 
 class ProductsPage extends StatefulWidget {
   const ProductsPage({super.key});
@@ -35,13 +36,25 @@ class _ProductsPageState extends State<ProductsPage> {
             Expanded(
               child: SizedBox(
                 height: 40,
-                child: CustomSearchBar(
-                    enColor: Colors.green, foColor: Colors.black),
               ),
             ),
           ],
         ),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(
+                    products: ['Laptop', 'Smartphone', 'Tablet', 'Headphones'],
+                    categories: ['Electronics', 'Accessories', 'Furniture'],
+                  ),
+                ),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.favorite_border_rounded,
                 size: 28), // Adjust icon size
