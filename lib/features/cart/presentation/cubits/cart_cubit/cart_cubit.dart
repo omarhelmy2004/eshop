@@ -18,11 +18,13 @@ class CartCubit extends Cubit<CartState> {
     while (retryCount < maxRetries) {
       try {
         emit(CartLoading());
-        final cartSnapshot = await _firestore.collection('carts').doc(userId).get();
+        final cartSnapshot =
+            await _firestore.collection('carts').doc(userId).get();
         if (cartSnapshot.exists) {
-          final List<ProductModel> cartItems = (cartSnapshot.data()?['items'] as List)
-              .map((item) => ProductModel.fromJson(item))
-              .toList();
+          final List<ProductModel> cartItems =
+              (cartSnapshot.data()?['items'] as List)
+                  .map((item) => ProductModel.fromJson(item))
+                  .toList();
           emit(CartLoaded(cartItems));
         } else {
           emit(CartLoaded([]));
@@ -31,7 +33,8 @@ class CartCubit extends Cubit<CartState> {
       } catch (e) {
         retryCount++;
         if (retryCount >= maxRetries) {
-          emit(CartError('Failed to fetch cart items. Please try again later.'));
+          emit(
+              CartError('Failed to fetch cart items. Please try again later.'));
           return;
         }
         await Future.delayed(retryDelay);
@@ -50,7 +53,9 @@ class CartCubit extends Cubit<CartState> {
         items.add(product.toJson());
         await cartRef.update({'items': items});
       } else {
-        await cartRef.set({'items': [product.toJson()]});
+        await cartRef.set({
+          'items': [product.toJson()]
+        });
       }
 
       fetchCartItems(userId);
@@ -144,6 +149,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   double calculateTotalAmount(List<ProductModel> cartItems) {
-    return cartItems.fold(0, (total, item) => total + (item.price * item.quantity));
+    return cartItems.fold(
+        0, (total, item) => total + (item.price * item.quantity));
   }
 }

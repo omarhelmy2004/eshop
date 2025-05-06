@@ -46,13 +46,15 @@ class CheckoutPage extends StatelessWidget {
                           width: 50,
                           height: 50,
                           color: Colors.grey[300],
-                          child: const Icon(Icons.broken_image, color: Colors.grey),
+                          child: const Icon(Icons.broken_image,
+                              color: Colors.grey),
                         );
                       },
                     ),
                     title: Text(product.title),
                     subtitle: Text('Quantity: ${product.quantity}'),
-                    trailing: Text('\$${(product.price * product.quantity).toStringAsFixed(2)}'),
+                    trailing: Text(
+                        '\$${(product.price * product.quantity).toStringAsFixed(2)}'),
                   );
                 },
               ),
@@ -75,7 +77,8 @@ class CheckoutPage extends StatelessWidget {
                 backgroundColor: Colors.green,
                 minimumSize: const Size(double.infinity, 50),
               ),
-              child: const Text('Place Order', style: TextStyle(color: Colors.white)),
+              child: const Text('Place Order',
+                  style: TextStyle(color: Colors.white)),
             ),
           ],
         ),

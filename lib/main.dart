@@ -28,9 +28,7 @@ class Eshop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      
       providers: [
-       
         BlocProvider(create: (context) => LoginCubit()),
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => CartCubit()),
