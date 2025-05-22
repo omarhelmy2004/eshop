@@ -24,10 +24,10 @@ E-Shop is a modern e-commerce Flutter application offering users a seamless onli
 ### App Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/eshop/main/screenshots/s1.png" width="150"/>
-  <img src="https://raw.githubusercontent.com/eshop/main/screenshots/s2.png" width="150"/>
-  <img src="https://raw.githubusercontent.com/eshop/main/screenshots/s3.png" width="150"/>
-  <img src="https://raw.githubusercontent.com/eshop/main/screenshots/s4.png" width="150"/>
+  <img src="https://raw.githubusercontent.com/omarhelmy2004/eshop/main/screenshots/s1.png" width="150"/>
+  <img src="https://raw.githubusercontent.com/omarhelmy2004/eshop/main/screenshots/s2.png" width="150"/>
+  <img src="https://raw.githubusercontent.com/omarhelmy2004/eshop/main/screenshots/s3.png" width="150"/>
+  <img src="https://raw.githubusercontent.com/omarhelmy2004/eshop/main/screenshots/s4.png" width="150"/>
 </p>
 
 ## License
