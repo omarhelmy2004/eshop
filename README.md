@@ -1,16 +1,34 @@
-# eshop
+# E-Shop
 
-A new Flutter project.
+## Overview
+E-Shop is a modern e-commerce Flutter application offering users a seamless online shopping experience. With authentication, wishlist, and cart management powered by Firebase, and a dynamic product feed sourced from the FakeStore API, E-Shop provides all the essential features needed for an engaging and fully functional online store.
 
-## Getting Started
+## Features
+- **User Authentication:** Sign in and sign out with secure Firebase Authentication.
+- **Product Browsing:** Browse a wide range of products fetched from the FakeStore API.
+- **Category Filtering:** View products based on selected categories for easy navigation.
+- **Cart Management:** Add and remove products from the cart, with data stored in Firebase.
+- **Wishlist Support:** Save favorite items to a wishlist for future purchases.
+- **User Profile Page:** View and manage account details.
+- **Responsive UI:** Smooth and user-friendly interface across different devices.
 
-This project is a starting point for a Flutter application.
+## Technologies Used
+- **Flutter:** Cross-platform UI toolkit for building responsive mobile applications.
+- **Dart:** Programming language used for Flutter development.
+- **Firebase Authentication:** Secure user authentication service.
+- **Firebase Realtime Database / Firestore:** For managing cart and wishlist data.
+- **FakeStore API:** External API used for fetching product data.
 
-A few resources to get you started if this is your first Flutter project:
+## Media
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### App Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/saving_app/main/screenshots/s1.png" width="150"/>
+  <img src="https://raw.githubusercontent.com/saving_app/main/screenshots/s2.png" width="150"/>
+  <img src="https://raw.githubusercontent.com/saving_app/main/screenshots/s3.png" width="150"/>
+  <img src="https://raw.githubusercontent.com/saving_app/main/screenshots/s4.png" width="150"/>
+</p>
+
+## License
+MIT License
